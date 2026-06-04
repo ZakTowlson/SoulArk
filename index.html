@@ -803,6 +803,32 @@
       .hero-cta-row { flex-direction: column; align-items: stretch; }
       .section-single, .tiers-section, .team-section, .audit-band, .cta-single { padding-left: 20px; padding-right: 20px; }
     }
+
+    /* COMMUNITY CAROUSEL */
+    .community-section { padding: 100px 24px 110px; text-align: center; background: var(--dark); position: relative; }
+    .community-inner { max-width: 1080px; margin: 0 auto; }
+    .community-header { margin-bottom: 44px; }
+    .community-verse { font-family: "Cinzel Decorative", serif; font-weight: 700; font-size: clamp(1.5rem, 2.4vw, 2.2rem); color: var(--white); line-height: 1.45; max-width: 760px; margin: 12px auto 0; }
+    .community-verse span { color: var(--gold); }
+    .community-ref { font-family: "Cinzel", serif; font-size: .6rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); opacity: .7; margin-top: 16px; }
+    .community-intro { font-size: .9rem; line-height: 1.75; font-weight: 300; color: var(--muted-dark); max-width: 600px; margin: 20px auto 0; }
+
+    .carousel { position: relative; margin-top: 8px; }
+    .carousel-viewport { overflow: hidden; border-radius: 5px; box-shadow: 0 24px 60px rgba(0,0,0,.5); }
+    .carousel-track { display: flex; transition: transform .65s cubic-bezier(.22,.61,.36,1); }
+    .carousel-slide { min-width: 100%; }
+    .carousel-slide img { width: 100%; height: clamp(320px, 58vh, 580px); object-fit: cover; display: block; }
+    .carousel-badge { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 3; font-family: "Cinzel", serif; font-size: .55rem; letter-spacing: .3em; text-transform: uppercase; color: var(--light); background: rgba(10,10,12,.55); border: 1px solid rgba(183,151,67,.4); padding: 8px 18px; border-radius: 30px; backdrop-filter: blur(4px); }
+    .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 3; width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--gold); background: rgba(10,10,12,.55); color: var(--gold); font-size: 1.4rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); transition: background .25s, color .25s; }
+    .carousel-btn:hover { background: var(--gold); color: var(--dark); }
+    .carousel-btn.prev { left: 16px; } .carousel-btn.next { right: 16px; }
+    .carousel-dots { display: flex; gap: 9px; justify-content: center; margin-top: 22px; flex-wrap: wrap; }
+    .carousel-dot { width: 8px; height: 8px; border-radius: 50%; border: none; background: rgba(245,240,232,.25); cursor: pointer; padding: 0; transition: background .25s, transform .25s; }
+    .carousel-dot.active { background: var(--gold); transform: scale(1.35); }
+    @media(max-width:768px){
+      .community-section { padding: 70px 16px 80px; }
+      .carousel-btn { width: 38px; height: 38px; font-size: 1.1rem; }
+    }
   </style>
 </head>
 <body>
@@ -850,7 +876,7 @@
   <div class="embers" id="embers"></div>
   <div class="light-rays" id="rays"></div>
   <div class="hero-content hero-center">
-    <div class="hero-label">A Global Community in Christ</div>
+    <div class="hero-label">Iron Sharpens Iron</div>
     <h1 class="hero-title">Soul Ark</h1>
     <p class="hero-sub">Where self-mastery meets total devotion to Christ.</p>
     <div class="hero-flags">
@@ -869,11 +895,6 @@
   </div>
 </section>
 
-<!-- VERSE BANNER -->
-<div class="verse-banner">
-  <p>"Iron sharpens iron, and one man sharpens another." — Proverbs 27:17</p>
-</div>
-
 <!-- MANIFESTO -->
 <section class="manifesto">
   <img class="manifesto-icon logo-img" style="height:60px;" src="assets/logo-b6cfa02c.png" alt="Logo"/>
@@ -883,6 +904,40 @@
     Fewer still <em>devote it to Christ</em>.
   </p>
   <div class="manifesto-ref reveal d2">Matthew 6:33 — Seek first the Kingdom</div>
+</section>
+
+<!-- COMMUNITY CAROUSEL -->
+<section class="community-section" id="community">
+  <div class="community-inner">
+    <div class="community-header">
+      <div class="features-tag reveal">The Community</div>
+      <h2 class="community-verse reveal d1">"For where two or three gather in my name, <span>there am I with them.</span>"</h2>
+      <div class="community-ref reveal d2">Matthew 18:20</div>
+      <p class="community-intro reveal d3">From across the world to the streets of Vietnam &mdash; Soul Ark is no longer just a community online. We gather, train, and walk it out together, wherever we are.</p>
+    </div>
+    <div class="carousel reveal d2" id="community-carousel">
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="carousel-track">
+          <div class="carousel-slide"><img src="assets/community/vietnam-01.jpg" alt="Soul Ark community in Vietnam" loading="lazy"/></div>
+          <div class="carousel-slide"><img src="assets/community/vietnam-02.jpg" alt="Soul Ark community in Vietnam" loading="lazy"/></div>
+          <div class="carousel-slide"><img src="assets/community/vietnam-03.jpg" alt="Soul Ark community in Vietnam" loading="lazy"/></div>
+          <div class="carousel-slide"><img src="assets/community/vietnam-04.jpg" alt="Soul Ark community in Vietnam" loading="lazy"/></div>
+          <div class="carousel-slide"><img src="assets/community/vietnam-05.jpg" alt="Soul Ark community in Vietnam" loading="lazy"/></div>
+          <div class="carousel-slide"><img src="assets/community/vietnam-06.jpg" alt="Soul Ark community in Vietnam" loading="lazy"/></div>
+          <div class="carousel-slide"><img src="assets/community/vietnam-07.jpg" alt="Soul Ark community in Vietnam" loading="lazy"/></div>
+          <div class="carousel-slide"><img src="assets/community/vietnam-08.jpg" alt="Soul Ark community in Vietnam" loading="lazy"/></div>
+          <div class="carousel-slide"><img src="assets/community/vietnam-09.jpg" alt="Soul Ark community in Vietnam" loading="lazy"/></div>
+          <div class="carousel-slide"><img src="assets/community/vietnam-10.jpg" alt="Soul Ark community in Vietnam" loading="lazy"/></div>
+          <div class="carousel-slide"><img src="assets/community/vietnam-11.jpg" alt="Soul Ark community in Vietnam" loading="lazy"/></div>
+          <div class="carousel-slide"><img src="assets/community/vietnam-12.jpg" alt="Soul Ark community in Vietnam" loading="lazy"/></div>
+        </div>
+      </div>
+      <span class="carousel-badge">Vietnam &middot; 2026</span>
+      <button class="carousel-btn prev" id="carousel-prev" aria-label="Previous photo">&#8249;</button>
+      <button class="carousel-btn next" id="carousel-next" aria-label="Next photo">&#8250;</button>
+    </div>
+    <div class="carousel-dots reveal" id="carousel-dots"></div>
+  </div>
 </section>
 
 <!-- MEMBERSHIP TIERS -->
@@ -1293,6 +1348,42 @@
       });
     });
   }
+
+  // COMMUNITY CAROUSEL
+  (function(){
+    const track = document.getElementById('carousel-track');
+    if (!track) return;
+    const total = track.children.length;
+    const dotsWrap = document.getElementById('carousel-dots');
+    let idx = 0, timer = null;
+
+    for (let i = 0; i < total; i++) {
+      const d = document.createElement('button');
+      d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Go to photo ' + (i + 1));
+      d.addEventListener('click', () => { go(i); restart(); });
+      dotsWrap.appendChild(d);
+    }
+    const dots = dotsWrap.children;
+
+    function go(n) {
+      idx = (n + total) % total;
+      track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+      for (let i = 0; i < dots.length; i++) dots[i].classList.toggle('active', i === idx);
+    }
+    function next() { go(idx + 1); }
+    function prev() { go(idx - 1); }
+    function start() { timer = setInterval(next, 4500); }
+    function restart() { clearInterval(timer); start(); }
+
+    document.getElementById('carousel-next').addEventListener('click', () => { next(); restart(); });
+    document.getElementById('carousel-prev').addEventListener('click', () => { prev(); restart(); });
+
+    const car = document.getElementById('community-carousel');
+    car.addEventListener('mouseenter', () => clearInterval(timer));
+    car.addEventListener('mouseleave', start);
+    start();
+  })();
 </script>
 </body>
 </html>

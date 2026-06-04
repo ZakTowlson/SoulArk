@@ -1,0 +1,6 @@
+.DS_Store
+**/.DS_Store
+.claude/
+assets/community/*.HEIC
+assets/community/*.heic
+assets/community/Screenshot*.PNG
