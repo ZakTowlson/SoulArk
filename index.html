@@ -825,6 +825,8 @@
     .carousel-dots { display: flex; gap: 9px; justify-content: center; margin-top: 22px; flex-wrap: wrap; }
     .carousel-dot { width: 8px; height: 8px; border-radius: 50%; border: none; background: rgba(245,240,232,.25); cursor: pointer; padding: 0; transition: background .25s, transform .25s; }
     .carousel-dot.active { background: var(--gold); transform: scale(1.35); }
+    .community-cta { margin-top: 38px; display: flex; flex-direction: column; align-items: center; gap: 22px; }
+    .community-cta-text { font-family: "Cinzel", serif; font-size: clamp(.92rem, 1.5vw, 1.12rem); font-style: italic; line-height: 1.6; color: var(--light); max-width: 540px; }
     @media(max-width:768px){
       .community-section { padding: 64px 16px 74px; }
       .carousel-viewport { border-radius: 14px; }
@@ -938,6 +940,10 @@
       <button class="carousel-btn next" id="carousel-next" aria-label="Next photo">&#8250;</button>
     </div>
     <div class="carousel-dots reveal" id="carousel-dots"></div>
+    <div class="community-cta reveal d2">
+      <p class="community-cta-text">Join Soul Ark for exclusive access to future events, retreats and link-ups around the world.</p>
+      <a href="#tiers" class="btn-gold">Join Soul Ark &rarr;</a>
+    </div>
   </div>
 </section>
 
