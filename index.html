@@ -778,6 +778,21 @@
     .stat-label { display: block; font-family: "Cinzel", serif; font-size: .55rem; letter-spacing: .25em; text-transform: uppercase; color: var(--muted-dark); margin-top: 9px; }
     .stat-sep { width: 1px; height: 36px; background: rgba(183,151,67,.2); }
     @media(max-width:600px){ .stat-sep { display: none; } }
+    /* Featured testimonial (Isaac) */
+    .featured-review { display: grid; grid-template-columns: minmax(0,.82fr) minmax(0,1.18fr); background: var(--dark3); border: 1px solid rgba(183,151,67,.25); border-radius: 18px; overflow: hidden; margin-bottom: 48px; box-shadow: 0 24px 60px rgba(0,0,0,.45); }
+    .featured-review-img { position: relative; min-height: 360px; }
+    .featured-review-img img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+    .featured-review-img .fr-badge { position: absolute; top: 16px; left: 16px; font-family: "Cinzel", serif; font-size: .52rem; letter-spacing: .22em; text-transform: uppercase; color: var(--dark); background: var(--gold); padding: 7px 14px; border-radius: 30px; }
+    .featured-review-body { padding: clamp(28px,4vw,52px); display: flex; flex-direction: column; justify-content: center; }
+    .fr-stars { color: var(--gold); font-size: 1rem; letter-spacing: 3px; margin-bottom: 18px; }
+    .fr-quote { font-family: "Cinzel", serif; font-style: italic; font-size: clamp(1.02rem,1.6vw,1.42rem); line-height: 1.55; color: var(--light); margin-bottom: 26px; }
+    .fr-quote .gold { color: var(--gold); }
+    .fr-name { font-family: "Cinzel Decorative", serif; font-size: 1.2rem; color: var(--white); }
+    .fr-role { font-family: "Cinzel", serif; font-size: .58rem; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); margin-top: 6px; }
+    @media(max-width:780px){
+      .featured-review { grid-template-columns: 1fr; }
+      .featured-review-img { aspect-ratio: 4/3; min-height: 0; }
+    }
 
     /* Soul Audit band */
     .audit-band { background: var(--gold); padding: 74px 48px; text-align:center; position:relative; overflow:hidden; z-index:200; }
@@ -1124,6 +1139,19 @@
       </div>
     </div>
 
+    <div class="featured-review reveal">
+      <div class="featured-review-img">
+        <span class="fr-badge">British Pro Boxer</span>
+        <img src="assets/community/isaac.jpg" alt="Isaac Chamberlain, British professional boxer"/>
+      </div>
+      <div class="featured-review-body">
+        <div class="fr-stars">★★★★★</div>
+        <p class="fr-quote">"It's genuinely <span class="gold">Christ-centered</span> — not just in words, but in how people show up. Men and women from all over the world, completely different walks of life, coming together to learn, grow, and be real with each other."</p>
+        <div class="fr-name">Isaac Chamberlain</div>
+        <div class="fr-role">British Professional Boxer</div>
+      </div>
+    </div>
+
     <div class="reviews-grid">
 
       <div class="review-card reveal d1">
@@ -1191,18 +1219,6 @@
         <p class="review-text">With all honesty I have to confess that after our first conversation I laid in bed and cried my eyes out — before I felt calmness and fell asleep worry-free for the first time in ages.</p>
       </div>
 
-      <div class="review-card reveal d3">
-        <span class="review-google-icon">★ Soul Ark</span>
-        <div class="review-card-top">
-          <img class="review-avatar" src="assets/rev-isaac.jpg" alt="Isaac Chamberlain" style="object-position:top"/>
-          <div class="review-meta">
-            <div class="review-name">Isaac Chamberlain</div>
-            <div class="review-sub">British Professional Boxer</div>
-          </div>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">It's genuinely Christ-centered — not just in words, but in how people show up. Men and women from all over the world, completely different walks of life, coming together to learn, grow, and be real with each other.</p>
-      </div>
 
       <div class="review-card reveal d1">
         <span class="review-google-icon">★ Soul Ark</span>
