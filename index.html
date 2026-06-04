@@ -762,6 +762,22 @@
     .tier-card .tier-cta:hover { background: var(--gold); color: var(--dark); }
     .tier-card.featured .tier-cta { background: var(--gold); color: var(--dark); }
     .tier-card.featured .tier-cta:hover { background: var(--gold2); box-shadow: 0 0 24px var(--gold-glow); }
+    .tier-price .amt.amt-text { font-size: 1.5rem; letter-spacing: .02em; }
+    /* Value breakdown on Community card */
+    .tier-feats .feat-val { margin-left: auto; flex-shrink: 0; padding-left: 10px; color: var(--gold2); font-size: .72rem; opacity: .72; white-space: nowrap; }
+    .tier-value { margin: -6px 0 24px; padding-top: 16px; border-top: 1px solid rgba(183,151,67,.18); }
+    .tier-value-row { display: flex; justify-content: space-between; align-items: baseline; font-family: "Cinzel", serif; font-size: .64rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted-dark); margin-bottom: 9px; }
+    .tier-value-row small { font-size: .72em; opacity: .7; }
+    .tv-strike { font-size: .98rem; color: var(--muted-dark); text-decoration: line-through; text-decoration-color: rgba(183,151,67,.7); }
+    .tier-value-pay { color: var(--gold); margin-bottom: 0; }
+    .tv-pay { font-family: "Cinzel Decorative", serif; font-weight: 900; font-size: 1.3rem; letter-spacing: 0; color: var(--gold); }
+    /* Stat / credibility bar */
+    .stat-bar { background: var(--dark2); border-top: 1px solid rgba(183,151,67,.15); border-bottom: 1px solid rgba(183,151,67,.15); display: flex; align-items: center; justify-content: center; gap: clamp(26px, 6vw, 84px); padding: 32px 24px; flex-wrap: wrap; }
+    .stat { text-align: center; }
+    .stat-num { display: block; font-family: "Cinzel Decorative", serif; font-weight: 900; font-size: clamp(1.5rem, 2.4vw, 2.1rem); color: var(--gold); line-height: 1; }
+    .stat-label { display: block; font-family: "Cinzel", serif; font-size: .55rem; letter-spacing: .25em; text-transform: uppercase; color: var(--muted-dark); margin-top: 9px; }
+    .stat-sep { width: 1px; height: 36px; background: rgba(183,151,67,.2); }
+    @media(max-width:600px){ .stat-sep { display: none; } }
 
     /* Soul Audit band */
     .audit-band { background: var(--gold); padding: 74px 48px; text-align:center; position:relative; overflow:hidden; z-index:200; }
@@ -898,6 +914,15 @@
   </div>
 </section>
 
+<!-- STAT / CREDIBILITY BAR -->
+<div class="stat-bar">
+  <div class="stat"><span class="stat-num">9+</span><span class="stat-label">Countries</span></div>
+  <div class="stat-sep"></div>
+  <div class="stat"><span class="stat-num">5.0&#9733;</span><span class="stat-label">Member Rating</span></div>
+  <div class="stat-sep"></div>
+  <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Christ-Centred</span></div>
+</div>
+
 <!-- COMMUNITY CAROUSEL -->
 <section class="community-section" id="community">
   <div class="community-inner">
@@ -946,27 +971,31 @@
     </div>
     <div class="tiers-grid">
 
-      <div class="tier-card reveal d1">
+      <div class="tier-card featured reveal d1">
+        <div class="tier-badge">Most Popular</div>
         <div class="tier-name">Soul Ark Community</div>
         <div class="tier-headline">The Community</div>
         <div class="tier-price"><span class="amt">$47</span><span class="per">/ month</span></div>
         <div class="tier-sub">Cancel anytime</div>
         <div class="tier-divider"></div>
         <ul class="tier-feats">
-          <li><span class="tick">&#10022;</span><span>Soul Ark community feed</span></li>
-          <li><span class="tick">&#10022;</span><span>Monthly workshops &amp; group coaching</span></li>
-          <li><span class="tick">&#10022;</span><span>Accountability &amp; real connections</span></li>
-          <li><span class="tick">&#10022;</span><span>A private space for building discipline, purpose &amp; momentum</span></li>
-          <li><span class="tick">&#10022;</span><span>Direct chat access to Zak &amp; other members</span></li>
-          <li><span class="tick">&#10022;</span><span>Community discussions &amp; check-ins</span></li>
-          <li><span class="tick">&#10022;</span><span>Articles &amp; blogs</span></li>
-          <li><span class="tick">&#10022;</span><span>Priority access to all future retreats &amp; events</span></li>
+          <li><span class="tick">&#10022;</span><span>Community feed, discussions &amp; check-ins</span><span class="feat-val">$29</span></li>
+          <li><span class="tick">&#10022;</span><span>Monthly workshops &amp; group coaching</span><span class="feat-val">$197</span></li>
+          <li><span class="tick">&#10022;</span><span>Direct chat access to Zak &amp; members</span><span class="feat-val">$97</span></li>
+          <li><span class="tick">&#10022;</span><span>Accountability &amp; real connections</span><span class="feat-val">$49</span></li>
+          <li><span class="tick">&#10022;</span><span>A space to build discipline, purpose &amp; momentum</span><span class="feat-val">$39</span></li>
+          <li><span class="tick">&#10022;</span><span>Articles &amp; blog library</span><span class="feat-val">$19</span></li>
+          <li><span class="tick">&#10022;</span><span>Priority access to all retreats &amp; events</span><span class="feat-val">$30</span></li>
         </ul>
+        <div class="tier-value">
+          <div class="tier-value-row"><span>Total value</span><span class="tv-strike">$460<small>/mo</small></span></div>
+          <div class="tier-value-row tier-value-pay"><span>Yours for</span><span class="tv-pay">$47<small>/mo</small></span></div>
+        </div>
         <a href="https://www.soulark.global/checkout/soul-ark-communtity" class="tier-cta">Join the Community &rarr;</a>
       </div>
 
-      <div class="tier-card featured reveal d2">
-        <div class="tier-badge">Best Value &middot; Lifetime</div>
+      <div class="tier-card reveal d2">
+        <div class="tier-badge">Lifetime Access</div>
         <div class="tier-name">Soul Ark Academy</div>
         <div class="tier-headline">The Full Transformation</div>
         <div class="tier-price"><span class="amt">$750</span><span class="per">one-time</span></div>
@@ -988,8 +1017,8 @@
       <div class="tier-card reveal d3">
         <div class="tier-name">Soul Ark Mentorship</div>
         <div class="tier-headline">Work Directly With Zak</div>
-        <div class="tier-price"><span class="amt">$3,500</span><span class="per">/ 12 weeks</span></div>
-        <div class="tier-sub">Application only</div>
+        <div class="tier-price"><span class="amt amt-text">By Application</span></div>
+        <div class="tier-sub">Limited spots &middot; 12-week programme</div>
         <div class="tier-divider"></div>
         <ul class="tier-feats">
           <li><span class="tick">&#10022;</span><span class="inc">Everything in Academy, plus:</span></li>
@@ -999,7 +1028,7 @@
           <li><span class="tick">&#10022;</span><span>Private access to all retreats &amp; events</span></li>
           <li><span class="tick">&#10022;</span><span>For those ready to go all-in over 12 weeks of close work</span></li>
         </ul>
-        <a href="https://calendly.com/zakjtowlson-soulark/book-a-call" class="tier-cta">Apply Now &rarr;</a>
+        <a href="https://calendly.com/zakjtowlson-soulark/book-a-call" class="tier-cta">Book a Call &rarr;</a>
       </div>
 
     </div>
