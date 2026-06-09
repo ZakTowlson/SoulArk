@@ -4,3 +4,8 @@
 assets/community/*.HEIC
 assets/community/*.heic
 assets/community/Screenshot*.PNG
+
+# Source image folders (originals) — only optimized web copies are committed
+assets/Finance wins*/
+assets/Profile pics*/
+assets/community :*/
