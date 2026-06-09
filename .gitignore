@@ -9,3 +9,6 @@ assets/community/Screenshot*.PNG
 assets/Finance wins*/
 assets/Profile pics*/
 assets/community :*/
+
+# Stray asset not used by the site
+assets/Soul Ark App image.PNG
