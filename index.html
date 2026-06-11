@@ -905,6 +905,17 @@
     .wcarousel-dot { width: 8px; height: 8px; border-radius: 50%; border: none; background: rgba(245,240,232,.25); cursor: pointer; padding: 0; transition: background .25s, transform .25s; }
     .wcarousel-dot.active { background: var(--gold); transform: scale(1.35); }
     @media(max-width:600px){ .wcarousel-btn { width: 36px; height: 36px; font-size: 1.1rem; } .wcarousel.finance .wcarousel-slide img { max-width: 280px; } }
+    /* The Creed */
+    .creed-section { background: var(--dark); padding: 100px 24px 96px; text-align: center; position: relative; overflow: hidden; }
+    .creed-section::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 28%, rgba(183,151,67,.08) 0%, transparent 60%); pointer-events: none; }
+    .creed-inner { max-width: 800px; margin: 0 auto; position: relative; z-index: 2; }
+    .creed-line { font-family: "Cinzel Decorative", serif; font-weight: 700; font-size: clamp(1.5rem, 3.2vw, 2.5rem); line-height: 1.38; color: var(--white); }
+    .creed-line .gold { color: var(--gold); }
+    .creed-attr { font-family: "Cinzel", serif; font-size: .56rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); opacity: .72; margin-top: 20px; }
+    .creed-stand { margin-top: 46px; display: flex; flex-direction: column; gap: 14px; }
+    .creed-stand p { font-family: "Cinzel", serif; font-size: clamp(.95rem, 1.7vw, 1.25rem); color: var(--light); letter-spacing: .03em; }
+    .creed-stand p strong { color: var(--gold); font-weight: 600; }
+    .creed-foot { margin: 42px auto 0; max-width: 560px; font-size: .95rem; line-height: 1.75; font-style: italic; color: var(--muted-dark); }
   </style>
 </head>
 <body>
@@ -952,22 +963,37 @@
   <div class="embers" id="embers"></div>
   <div class="light-rays" id="rays"></div>
   <div class="hero-content hero-center">
-    <div class="hero-label">Iron Sharpens Iron</div>
+    <div class="hero-label">Anchored in Faith</div>
     <h1 class="hero-title">Soul Ark</h1>
-    <p class="hero-sub">Where self-mastery meets total devotion to Christ.</p>
+    <p class="hero-sub">A movement of men and women standing for Truth, brotherhood and unity in a world that's lost its way.</p>
     <div class="hero-flags">
-      <span class="flags-label">Members from across the world</span>
+      <span class="flags-label">A family from across the world</span>
       <span class="flags-row" role="img" aria-label="United Kingdom, Poland, United States, Finland, Slovakia, Czechia, Serbia, Japan, North Macedonia">🇬🇧 🇵🇱 🇺🇸 🇫🇮 🇸🇰 🇨🇿 🇷🇸 🇯🇵 🇲🇰</span>
     </div>
-    <p class="hero-sub hero-sub-2">A private community for those who refuse to drift through life and decay with the modern world &mdash; men and women committed to building real strength in mind, body, and soul.</p>
+    <p class="hero-sub hero-sub-2">More than a community &mdash; a family, a refuge, an ark. For those who refuse to drift with a dying age and choose to build real faith, strength and brotherhood, anchored in Christ.</p>
     <div class="hero-cta-row">
-      <a href="#tiers" class="btn-gold">Choose Your Path &rarr;</a>
+      <a href="#tiers" class="btn-gold">Join the Family &amp; Support the Movement &rarr;</a>
       <a href="https://soul-audit.vercel.app/" class="btn-ghost">Take the Soul Audit</a>
     </div>
   </div>
   <div class="scroll-cue">
     <span>Scroll</span>
     <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- THE CREED -->
+<section class="creed-section" id="creed">
+  <div class="creed-inner">
+    <h2 class="creed-line reveal">If the world is against the <span class="gold">Truth</span>, Soul Ark is against the world.</h2>
+    <div class="creed-attr reveal d2">In the spirit of St. Athanasius &mdash; contra mundum</div>
+    <div class="creed-stand reveal d2">
+      <p>We stand <strong>for Truth</strong> in an age of lies.</p>
+      <p><strong>For unity</strong> in an age of division.</p>
+      <p><strong>For family</strong> in an age of isolation.</p>
+      <p><strong>For Christ</strong> in an age that forgot Him.</p>
+    </div>
+    <p class="creed-foot reveal d3">We're not here to fight the world. We're here to refuse to drown with it &mdash; and to build something that lasts, anchored on the Rock.</p>
   </div>
 </section>
 
