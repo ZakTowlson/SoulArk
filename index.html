@@ -845,13 +845,13 @@
     .mpin:nth-child(3n)::before { animation-delay:0.8s; }
     @keyframes glowPulse { 0%,100%{opacity:0.5; transform:translateX(-50%) scale(0.8)} 50%{opacity:1; transform:translateX(-50%) scale(1.2)} }
     .mpin-img { width:32px; height:32px; border-radius:50%; overflow:hidden; border:2px solid #b79743; box-shadow:0 0 8px rgba(183,151,67,0.6),0 2px 8px rgba(0,0,0,0.9); background:#111; flex-shrink:0; }
-    .mpin-img img { width:100%; height:100%; object-fit:cover; object-position:center top; }
+    .mpin-img img { width:100%; height:100%; object-fit:cover; object-position:center center; }
     .mpin-stem { width:2px; height:6px; background:linear-gradient(to bottom,#b79743,rgba(183,151,67,0.2)); }
     .mpin-dot { width:5px; height:5px; border-radius:50%; background:#cead58; box-shadow:0 0 6px #b79743; margin-top:-1px; position:relative; }
     .mpin-dot::after { content:''; position:absolute; width:12px; height:12px; border-radius:50%; border:1px solid rgba(183,151,67,0.5); top:50%; left:50%; transform:translate(-50%,-50%); animation:mripple 3s ease-out infinite; }
     @keyframes mripple { 0%{transform:translate(-50%,-50%) scale(1);opacity:0.6} 100%{transform:translate(-50%,-50%) scale(2.5);opacity:0} }
     .mpin-name { position:absolute; top:40px; left:50%; transform:translateX(-50%); font-family:"Cinzel",serif; font-size:6.5px; color:#cead58; letter-spacing:0.06em; white-space:nowrap; text-shadow:0 1px 3px #000; background:rgba(0,0,0,0.6); padding:2px 4px; border-radius:3px; pointer-events:none; }
-    @media(max-width:768px){ .mpin-img{width:20px;height:20px} .mpin-name{font-size:5px;top:26px} .mpin-stem{height:4px} }
+    @media(max-width:768px){ .mpin-img{width:30px;height:30px} .mpin-name{display:none} .mpin-stem{height:5px} .mpin::before{width:50px;height:50px} }
 
     /* Soul Audit band */
     .audit-band { background: var(--gold); padding: 74px 48px; text-align:center; position:relative; overflow:hidden; z-index:200; }
