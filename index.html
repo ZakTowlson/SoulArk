@@ -819,6 +819,40 @@
       .featured-review-img { aspect-ratio: 4/3; min-height: 0; }
     }
 
+    /* BROTHERHOOD MAP SECTION */
+    .map-section { position:relative; width:100%; max-width:900px; margin:0 auto; padding:0 0 48px; overflow:visible; }
+    .map-inner { position:relative; width:100%; }
+    .map-bg {
+      display:block; width:100%; height:auto;
+      -webkit-mask-image: radial-gradient(ellipse 80% 75% at 50% 50%, black 30%, transparent 100%);
+      mask-image: radial-gradient(ellipse 80% 75% at 50% 50%, black 30%, transparent 100%);
+    }
+    .map-overlay { display:none; }
+    .map-vignette { display:none; }
+    .mpin { position:absolute; z-index:10; display:flex; flex-direction:column; align-items:center; transform:translate(-50%,-100%); animation:mpinPulse 3s ease-in-out infinite; }
+    .mpin:nth-child(even) { animation-delay:1.5s; }
+    .mpin:nth-child(3n) { animation-delay:0.8s; }
+    @keyframes mpinPulse { 0%,100%{filter:drop-shadow(0 0 4px rgba(183,151,67,0.5))} 50%{filter:drop-shadow(0 0 14px rgba(206,173,88,1))} }
+    /* Light glow on the map behind each pin */
+    .mpin::before {
+      content:''; position:absolute; bottom:-4px; left:50%; transform:translateX(-50%);
+      width:80px; height:80px; border-radius:50%;
+      background: radial-gradient(circle, rgba(206,173,88,0.35) 0%, rgba(183,151,67,0.12) 40%, transparent 70%);
+      animation:glowPulse 3s ease-in-out infinite;
+      z-index:-1; pointer-events:none;
+    }
+    .mpin:nth-child(even)::before { animation-delay:1.5s; }
+    .mpin:nth-child(3n)::before { animation-delay:0.8s; }
+    @keyframes glowPulse { 0%,100%{opacity:0.5; transform:translateX(-50%) scale(0.8)} 50%{opacity:1; transform:translateX(-50%) scale(1.2)} }
+    .mpin-img { width:32px; height:32px; border-radius:50%; overflow:hidden; border:2px solid #b79743; box-shadow:0 0 8px rgba(183,151,67,0.6),0 2px 8px rgba(0,0,0,0.9); background:#111; flex-shrink:0; }
+    .mpin-img img { width:100%; height:100%; object-fit:cover; object-position:center top; }
+    .mpin-stem { width:2px; height:6px; background:linear-gradient(to bottom,#b79743,rgba(183,151,67,0.2)); }
+    .mpin-dot { width:5px; height:5px; border-radius:50%; background:#cead58; box-shadow:0 0 6px #b79743; margin-top:-1px; position:relative; }
+    .mpin-dot::after { content:''; position:absolute; width:12px; height:12px; border-radius:50%; border:1px solid rgba(183,151,67,0.5); top:50%; left:50%; transform:translate(-50%,-50%); animation:mripple 3s ease-out infinite; }
+    @keyframes mripple { 0%{transform:translate(-50%,-50%) scale(1);opacity:0.6} 100%{transform:translate(-50%,-50%) scale(2.5);opacity:0} }
+    .mpin-name { position:absolute; top:40px; left:50%; transform:translateX(-50%); font-family:"Cinzel",serif; font-size:6.5px; color:#cead58; letter-spacing:0.06em; white-space:nowrap; text-shadow:0 1px 3px #000; background:rgba(0,0,0,0.6); padding:2px 4px; border-radius:3px; pointer-events:none; }
+    @media(max-width:768px){ .mpin-img{width:20px;height:20px} .mpin-name{font-size:5px;top:26px} .mpin-stem{height:4px} }
+
     /* Soul Audit band */
     .audit-band { background: var(--gold); padding: 74px 48px; text-align:center; position:relative; overflow:hidden; z-index:200; }
     .audit-band::before { content:""; position:absolute; inset:0; background: linear-gradient(135deg, rgba(255,255,255,.14) 0%, transparent 55%); pointer-events:none; }
@@ -980,7 +1014,7 @@
       <span class="flags-label">A family from across the world</span>
       <span class="flags-row" role="img" aria-label="United Kingdom, Poland, United States, Finland, Slovakia, Czechia, Serbia, Japan, North Macedonia">🇬🇧 🇵🇱 🇺🇸 🇫🇮 🇸🇰 🇨🇿 🇷🇸 🇯🇵 🇲🇰</span>
     </div>
-    <p class="hero-sub hero-sub-2">More than a community &mdash; a place for those who refuse to decay in this modern world and choose to build real faith, strength and financial freedom, anchored in Christ.</p>
+    <p class="hero-sub hero-sub-2">A place for those who refuse to decay in this modern world and choose to build real faith, strength and financial freedom, anchored in Christ.</p>
     <div class="hero-cta-row">
       <a href="#tiers" class="btn-gold">Join Soul Ark &rarr;</a>
       <a href="https://soul-audit.vercel.app/" class="btn-ghost">Take the Soul Audit</a>
@@ -989,6 +1023,51 @@
   <div class="scroll-cue">
     <span>Scroll</span>
     <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- BROTHERHOOD MAP -->
+<section class="map-section">
+  <div class="map-inner">
+    <img class="map-bg" src="assets/new map pic.png" alt="Soul Ark — a global brotherhood"/>
+    <div class="map-overlay"></div>
+    <div class="map-vignette"></div>
+
+    <!-- UK / England — spread in a loose cluster around UK -->
+    <div class="mpin" style="left:41.5%;top:30.0%"><div class="mpin-img"><img src="assets/team-zak,egland.jpg" alt="Zak"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">ZAK · England</div></div>
+    <div class="mpin" style="left:39.5%;top:27.5%"><div class="mpin-img"><img src="assets/rev-isaac.jpg" alt="Isaac"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">ISAAC · England</div></div>
+    <div class="mpin" style="left:43.5%;top:27.5%"><div class="mpin-img"><img src="assets/rev-levite, england.jpg" alt="Levite"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">LEVITE · England</div></div>
+    <div class="mpin" style="left:37.5%;top:30.5%"><div class="mpin-img"><img src="assets/Brandon member UK.png" alt="Brandon"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">BRANDON · UK</div></div>
+    <div class="mpin" style="left:39.0%;top:33.0%"><div class="mpin-img"><img src="assets/Joe UK.png" alt="Joe"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">JOE · UK</div></div>
+    <div class="mpin" style="left:43.0%;top:33.5%"><div class="mpin-img"><img src="assets/Sean member UK.png" alt="Sean"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">SEAN · UK</div></div>
+    <div class="mpin" style="left:41.0%;top:35.5%"><div class="mpin-img"><img src="assets/sam memebr UK .png" alt="Sam UK"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">SAM · UK</div></div>
+    <!-- Finland -->
+    <div class="mpin" style="left:52.5%;top:18.0%"><div class="mpin-img"><img src="assets/Miro member finland.png" alt="Miro"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">MIRO · Finland</div></div>
+    <!-- Poland -->
+    <div class="mpin" style="left:52.0%;top:27.0%"><div class="mpin-img"><img src="assets/Krys poland.png" alt="Krys"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">KRYS · Poland</div></div>
+    <div class="mpin" style="left:54.0%;top:25.0%"><div class="mpin-img"><img src="assets/rev-renata.poland,jpg.jpg" alt="Renata"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">RENATA · Poland</div></div>
+    <!-- Czech -->
+    <div class="mpin" style="left:52.5%;top:30.5%"><div class="mpin-img"><img src="assets/jakub czech.jpg" alt="Jakub"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">JAKUB · Czech</div></div>
+    <!-- Slovakia -->
+    <div class="mpin" style="left:54.5%;top:30.0%"><div class="mpin-img"><img src="assets/rev-sam, slovakia.jpg" alt="Sam"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">SAM · Slovakia</div></div>
+    <!-- Serbia -->
+    <div class="mpin" style="left:54.0%;top:34.5%"><div class="mpin-img"><img src="assets/rev-lazar, serbia.jpg" alt="Lazar"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">LAZAR · Serbia</div></div>
+    <div class="mpin" style="left:56.0%;top:32.5%"><div class="mpin-img"><img src="assets/serbia nemanja.jpg" alt="Nemanja"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">NEMANJA · Serbia</div></div>
+    <div class="mpin" style="left:55.5%;top:36.0%"><div class="mpin-img"><img src="assets/Duncan member serbia.png" alt="Duncan"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">DUNCAN · Serbia</div></div>
+    <!-- N. Macedonia -->
+    <div class="mpin" style="left:54.5%;top:38.0%"><div class="mpin-img"><img src="assets/rev-tomas., north macedoniajpg.jpg" alt="Tomas"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">TOMAS · N. Macedonia</div></div>
+    <!-- Malta -->
+    <div class="mpin" style="left:51.5%;top:40.5%"><div class="mpin-img"><img src="assets/david malta.png" alt="David"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">DAVID · Malta</div></div>
+    <!-- Canada -->
+    <div class="mpin" style="left:19.0%;top:22.0%"><div class="mpin-img"><img src="assets/team-heather, canada,jpg.jpg" alt="Heather"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">HEATHER · Canada</div></div>
+    <!-- USA — spread across the US -->
+    <div class="mpin" style="left:16.0%;top:35.0%"><div class="mpin-img"><img src="assets/laryssa USA.jpg" alt="Laryssa"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">LARYSSA · USA</div></div>
+    <div class="mpin" style="left:21.0%;top:33.0%"><div class="mpin-img"><img src="assets/Andrew memebr USA.png" alt="Andrew"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">ANDREW · USA</div></div>
+    <div class="mpin" style="left:13.0%;top:33.0%"><div class="mpin-img"><img src="assets/Lena USA.png" alt="Lena"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">LENA · USA</div></div>
+    <div class="mpin" style="left:24.0%;top:36.0%"><div class="mpin-img"><img src="assets/Lucy member USA.png" alt="Lucy"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">LUCY · USA</div></div>
+    <div class="mpin" style="left:18.5%;top:38.5%"><div class="mpin-img"><img src="assets/hannah member USA.png" alt="Hannah"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">HANNAH · USA</div></div>
+    <!-- Japan -->
+    <div class="mpin" style="left:83.0%;top:29.0%"><div class="mpin-img"><img src="assets/Just in member japan.png" alt="Justin"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">JUSTIN · Japan</div></div>
   </div>
 </section>
 
