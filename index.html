@@ -853,6 +853,13 @@
     .mpin-name { position:absolute; top:56px; left:50%; transform:translateX(-50%); font-family:"Cinzel",serif; font-size:7px; color:#cead58; letter-spacing:0.06em; white-space:nowrap; text-shadow:0 1px 3px #000; background:rgba(0,0,0,0.65); padding:2px 5px; border-radius:3px; pointer-events:none; }
     @media(max-width:768px){ .mpin-img{width:40px;height:40px} .mpin-name{display:none} .mpin-stem{height:5px} .mpin::before{width:60px;height:60px} }
 
+    /* QUIZ SECTION */
+    .quiz-section { background: var(--dark); padding: 80px 24px 90px; text-align: center; position: relative; }
+    .quiz-section::before { content:""; position:absolute; inset:0; background: radial-gradient(ellipse at 50% 0%, rgba(183,151,67,.07) 0%, transparent 60%); pointer-events:none; }
+    .quiz-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 2; }
+    .quiz-title { font-family: "Cinzel", serif; font-size: clamp(1rem, 2.2vw, 1.4rem); line-height: 1.65; color: var(--white); font-weight: 400; margin: 18px 0 36px; letter-spacing: 0.02em; }
+    @media(max-width:600px){ .quiz-section { padding: 60px 20px 70px; } }
+
     /* Soul Audit band */
     .audit-band { background: var(--gold); padding: 74px 48px; text-align:center; position:relative; overflow:hidden; z-index:200; }
     .audit-band::before { content:""; position:absolute; inset:0; background: linear-gradient(135deg, rgba(255,255,255,.14) 0%, transparent 55%); pointer-events:none; }
@@ -968,7 +975,7 @@
 <!-- LOADER -->
 <div id="loader">
   <img class="logo-img" src="assets/logo-b6cfa02c.png" alt="Soul Ark Logo"/>
-  <div class="loader-text">Don't let your purpose pick someone else</div>
+  <div class="loader-text">Where self mastery meets total devotion to Christ</div>
 </div>
 
 <!-- ORTHODOX CROSS DIVIDER -->
@@ -1025,96 +1032,12 @@
   </div>
 </section>
 
-<!-- BROTHERHOOD MAP -->
-<section class="map-section">
-  <div class="map-inner">
-    <img class="map-bg" src="assets/map-circle.png" alt="Soul Ark — a global brotherhood"/>
-    <div class="map-overlay"></div>
-    <div class="map-vignette"></div>
-
-    <!-- UK / England — spread in a loose cluster around UK -->
-    <div class="mpin" style="left:41.5%;top:30.0%"><div class="mpin-img"><img src="assets/team-zak-england.jpg" alt="Zak"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">ZAK · England</div></div>
-    <div class="mpin" style="left:39.5%;top:27.5%"><div class="mpin-img"><img src="assets/rev-isaac.jpg" alt="Isaac"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">ISAAC · England</div></div>
-    <div class="mpin" style="left:43.5%;top:27.5%"><div class="mpin-img"><img src="assets/rev-levite-england.jpg" alt="Levite"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">LEVITE · England</div></div>
-    <div class="mpin" style="left:37.5%;top:30.5%"><div class="mpin-img"><img src="assets/member-brandon-uk.png" alt="Brandon"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">BRANDON · UK</div></div>
-    <div class="mpin" style="left:39.0%;top:33.0%"><div class="mpin-img"><img src="assets/member-joe-uk.png" alt="Joe"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">JOE · UK</div></div>
-    <div class="mpin" style="left:43.0%;top:33.5%"><div class="mpin-img"><img src="assets/member-sean-uk.png" alt="Sean"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">SEAN · UK</div></div>
-    <div class="mpin" style="left:41.0%;top:35.5%"><div class="mpin-img"><img src="assets/member-sam-uk.png" alt="Sam UK"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">SAM · UK</div></div>
-    <!-- Finland -->
-    <div class="mpin" style="left:52.5%;top:18.0%"><div class="mpin-img"><img src="assets/member-miro-finland.png" alt="Miro"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">MIRO · Finland</div></div>
-    <!-- Poland -->
-    <div class="mpin" style="left:52.0%;top:27.0%"><div class="mpin-img"><img src="assets/member-krys-poland.png" alt="Krys"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">KRYS · Poland</div></div>
-    <div class="mpin" style="left:54.0%;top:25.0%"><div class="mpin-img"><img src="assets/rev-renata-poland.jpg" alt="Renata"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">RENATA · Poland</div></div>
-    <!-- Czech -->
-    <div class="mpin" style="left:52.5%;top:30.5%"><div class="mpin-img"><img src="assets/rev-jakub-czech.jpg" alt="Jakub"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">JAKUB · Czech</div></div>
-    <!-- Slovakia -->
-    <div class="mpin" style="left:54.5%;top:30.0%"><div class="mpin-img"><img src="assets/rev-sam-slovakia.jpg" alt="Sam"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">SAM · Slovakia</div></div>
-    <!-- Serbia -->
-    <div class="mpin" style="left:54.0%;top:34.5%"><div class="mpin-img"><img src="assets/rev-lazar-serbia.jpg" alt="Lazar"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">LAZAR · Serbia</div></div>
-    <div class="mpin" style="left:56.0%;top:32.5%"><div class="mpin-img"><img src="assets/rev-nemanja-serbia.jpg" alt="Nemanja"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">NEMANJA · Serbia</div></div>
-    <div class="mpin" style="left:55.5%;top:36.0%"><div class="mpin-img"><img src="assets/member-duncan-serbia.png" alt="Duncan"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">DUNCAN · Serbia</div></div>
-    <!-- N. Macedonia -->
-    <div class="mpin" style="left:54.5%;top:38.0%"><div class="mpin-img"><img src="assets/rev-tomas-macedonia.jpg" alt="Tomas"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">TOMAS · N. Macedonia</div></div>
-    <!-- Malta -->
-    <div class="mpin" style="left:51.5%;top:40.5%"><div class="mpin-img"><img src="assets/member-david-malta.png" alt="David"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">DAVID · Malta</div></div>
-    <!-- Canada -->
-    <div class="mpin" style="left:19.0%;top:22.0%"><div class="mpin-img"><img src="assets/team-heather-canada.jpg" alt="Heather"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">HEATHER · Canada</div></div>
-    <!-- USA — spread across the US -->
-    <div class="mpin" style="left:16.0%;top:35.0%"><div class="mpin-img"><img src="assets/rev-laryssa-usa.jpg" alt="Laryssa"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">LARYSSA · USA</div></div>
-    <div class="mpin" style="left:21.0%;top:33.0%"><div class="mpin-img"><img src="assets/member-andrew-usa.png" alt="Andrew"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">ANDREW · USA</div></div>
-    <div class="mpin" style="left:13.0%;top:33.0%"><div class="mpin-img"><img src="assets/member-lena-usa.png" alt="Lena"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">LENA · USA</div></div>
-    <div class="mpin" style="left:24.0%;top:36.0%"><div class="mpin-img"><img src="assets/member-lucy-usa.png" alt="Lucy"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">LUCY · USA</div></div>
-    <div class="mpin" style="left:18.5%;top:38.5%"><div class="mpin-img"><img src="assets/member-hannah-usa.png" alt="Hannah"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">HANNAH · USA</div></div>
-    <!-- Japan -->
-    <div class="mpin" style="left:83.0%;top:29.0%"><div class="mpin-img"><img src="assets/member-justin-japan.png" alt="Justin"/></div><div class="mpin-stem"></div><div class="mpin-dot"></div><div class="mpin-name">JUSTIN · Japan</div></div>
-  </div>
-</section>
-
-<!-- THE CREED -->
-<!-- MEMBERSHIP TIERS -->
-<section class="tiers-section" id="tiers">
-  <div class="tiers-inner">
-    <div class="tiers-header">
-      <h2 class="features-title reveal d2" style="font-size:clamp(1.05rem,1.9vw,1.45rem);line-height:1.5;">Stop Staring at the Chaos of the World. Focus on <span>Your Own Life.</span></h2>
-    </div>
-    <div class="tiers-grid">
-
-      <div class="tier-card featured reveal d1">
-        <div class="tier-badge">The Family</div>
-        <div class="tier-name">Soul Ark Membership</div>
-        <div class="tier-headline">Anchored in Faith</div>
-        <div class="tier-price"><span class="amt">£47</span><span class="per">/ month</span></div>
-        <div class="tier-sub">Men &amp; women &middot; Cancel anytime</div>
-        <div class="tier-divider"></div>
-        <div class="tier-highlight">
-          <span class="th-tag">&#9733; Now Included</span>
-          <span class="th-main">Book private 1:1 calls with Zak</span>
-          <span class="th-val">usually £145/hr &mdash; included free</span>
-        </div>
-        <ul class="tier-feats">
-          <li><span class="tick">&#10022;</span><span>A global family &mdash; brotherhood, sisterhood &amp; belonging</span><span class="feat-val">Priceless</span></li>
-          <li><span class="tick">&#10022;</span><span>Full Identity, Mindset &amp; Emotional Control course</span><span class="feat-val">£197</span></li>
-          <li><span class="tick">&#10022;</span><span>Masterclass library (new videos weekly)</span><span class="feat-val">£127</span></li>
-          <li><span class="tick">&#10022;</span><span>Monthly workshops &amp; group coaching</span><span class="feat-val">£97</span></li>
-          <li><span class="tick">&#10022;</span><span>Community feed, discussions &amp; check-ins</span><span class="feat-val">£9</span></li>
-          <li><span class="tick">&#10022;</span><span>Articles, blogs &amp; resource library</span><span class="feat-val">£19</span></li>
-          <li><span class="tick">&#10022;</span><span>Accountability &amp; real connection</span><span class="feat-val">Priceless</span></li>
-          <li><span class="tick">&#10022;</span><span>Priority access to all retreats &amp; events</span><span class="feat-val">Save £1k/yr</span></li>
-          <li><span class="tick">&#10022;</span><span>Direct access to Zak, all Soul Ark coaches &amp; members</span><span class="feat-val">Priceless</span></li>
-        </ul>
-        <div class="tier-value">
-          <div class="tier-value-row"><span>Total value</span><span class="tv-strike">£594+<small>/mo</small></span></div>
-          <div class="tier-value-row tier-value-pay"><span>Yours for</span><span class="tv-pay">£47<small>/mo</small></span></div>
-        </div>
-        <a href="https://www.soulark.global/checkout/soul-ark-communtity" class="tier-cta">Join Soul Ark &rarr;</a>
-      </div>
-
-    </div>
-    <div class="upsell-box reveal d2">
-      <h4>Ready to Go Deeper?</h4>
-      <p>Full financial education, 1:1 mentorships, bespoke programmes, life coaching, therapy and more &mdash; all available inside. Book a call to find out what's right for you.</p>
-      <a href="https://calendly.com/zakjtowlson-soulark/book-a-call">Book a Call &rarr;</a>
-    </div>
+<!-- QUIZ SECTION -->
+<section class="quiz-section">
+  <div class="quiz-inner">
+    <div class="features-tag reveal">Free &middot; 2 Minutes</div>
+    <h2 class="quiz-title reveal d1">10 simple questions that will expose what's really holding you back, uncover the excuses you've been telling yourself, and reveal the next step you need to take.</h2>
+    <a href="https://soul-audit.vercel.app/" class="btn-gold reveal d2">Take the test &rarr;</a>
   </div>
 </section>
 
@@ -1177,40 +1100,73 @@
 </section>
 
 
-<!-- COMMUNITY CAROUSEL -->
+<!-- BROTHERHOOD PHOTOS -->
 <section class="community-section" id="community">
   <div class="community-inner">
     <div class="community-header">
-      <div class="features-tag reveal">The Community</div>
-      <h2 class="community-verse reveal d1">"For where two or three gather in my name, <span>there am I with them.</span>"</h2>
-      <div class="community-ref reveal d2">Matthew 18:20</div>
-      <p class="community-intro reveal d3">From across the world to the streets of Vietnam &mdash; Soul Ark is no longer just a community online. We gather, train, and walk it out together, wherever we are.</p>
+      <div class="features-tag reveal">The Brotherhood</div>
+      <h2 class="community-verse reveal d1">Men Need Brotherhood</h2>
+      <p class="community-intro reveal d3">Not followers. Not fans. Brothers. Soul Ark men gather, train, and walk it out together — wherever they are in the world.</p>
     </div>
     <div class="carousel reveal d2" id="community-carousel">
       <div class="carousel-viewport">
         <div class="carousel-track" id="carousel-track">
-          <div class="carousel-slide"><img src="assets/community/vietnam-01.jpg" alt="Soul Ark community in Vietnam" loading="lazy"/></div>
-          <div class="carousel-slide"><img src="assets/community/vietnam-02.jpg" alt="Soul Ark community in Vietnam" loading="lazy"/></div>
-          <div class="carousel-slide"><img src="assets/community/vietnam-03.jpg" alt="Soul Ark community in Vietnam" loading="lazy"/></div>
-          <div class="carousel-slide"><img src="assets/community/vietnam-04.jpg" alt="Soul Ark community in Vietnam" loading="lazy"/></div>
-          <div class="carousel-slide"><img src="assets/community/vietnam-05.jpg" alt="Soul Ark community in Vietnam" loading="lazy"/></div>
-          <div class="carousel-slide"><img src="assets/community/vietnam-06.jpg" alt="Soul Ark community in Vietnam" loading="lazy"/></div>
-          <div class="carousel-slide"><img src="assets/community/vietnam-07.jpg" alt="Soul Ark community in Vietnam" loading="lazy"/></div>
-          <div class="carousel-slide"><img src="assets/community/vietnam-08.jpg" alt="Soul Ark community in Vietnam" loading="lazy"/></div>
-          <div class="carousel-slide"><img src="assets/community/vietnam-09.jpg" alt="Soul Ark community in Vietnam" loading="lazy"/></div>
-          <div class="carousel-slide"><img src="assets/community/vietnam-10.jpg" alt="Soul Ark community in Vietnam" loading="lazy"/></div>
-          <div class="carousel-slide"><img src="assets/community/vietnam-11.jpg" alt="Soul Ark community in Vietnam" loading="lazy"/></div>
-          <div class="carousel-slide"><img src="assets/community/vietnam-12.jpg" alt="Soul Ark community in Vietnam" loading="lazy"/></div>
+          <div class="carousel-slide"><img src="assets/Soul Ark meet up/meetup-01.jpg" alt="Soul Ark Brotherhood" loading="lazy"/></div>
+          <div class="carousel-slide"><img src="assets/Soul Ark meet up/meetup-02.jpg" alt="Soul Ark Brotherhood" loading="lazy"/></div>
+          <div class="carousel-slide"><img src="assets/Soul Ark meet up/meetup-03.jpg" alt="Soul Ark Brotherhood" loading="lazy"/></div>
+          <div class="carousel-slide"><img src="assets/Soul Ark meet up/meetup-04.jpg" alt="Soul Ark Brotherhood" loading="lazy"/></div>
+          <div class="carousel-slide"><img src="assets/Soul Ark meet up/meetup-05.jpg" alt="Soul Ark Brotherhood" loading="lazy"/></div>
+          <div class="carousel-slide"><img src="assets/Soul Ark meet up/meetup-06.jpg" alt="Soul Ark Brotherhood" loading="lazy"/></div>
         </div>
       </div>
-      <span class="carousel-badge">Vietnam &middot; 2026</span>
       <button class="carousel-btn prev" id="carousel-prev" aria-label="Previous photo">&#8249;</button>
       <button class="carousel-btn next" id="carousel-next" aria-label="Next photo">&#8250;</button>
     </div>
     <div class="carousel-dots reveal" id="carousel-dots"></div>
-    <div class="community-cta reveal d2">
-      <p class="community-cta-text">Join Soul Ark for exclusive access to future events, retreats and link-ups around the world.</p>
-      <a href="#tiers" class="btn-gold">Join Soul Ark &rarr;</a>
+  </div>
+</section>
+
+<!-- MEMBERSHIP TIERS -->
+<section class="tiers-section" id="tiers">
+  <div class="tiers-inner">
+    <div class="tiers-header">
+      <h2 class="features-title reveal d2" style="font-size:clamp(1.05rem,1.9vw,1.45rem);line-height:1.5;">Ready to join? <span>Start here.</span></h2>
+    </div>
+    <div class="tiers-grid">
+      <div class="tier-card featured reveal d1">
+        <div class="tier-badge">The Family</div>
+        <div class="tier-name">Soul Ark Membership</div>
+        <div class="tier-headline">Anchored in Faith</div>
+        <div class="tier-price"><span class="amt">£47</span><span class="per">/ month</span></div>
+        <div class="tier-sub">Men &amp; women &middot; Cancel anytime</div>
+        <div class="tier-divider"></div>
+        <div class="tier-highlight">
+          <span class="th-tag">&#9733; Now Included</span>
+          <span class="th-main">Book private 1:1 calls with Zak</span>
+          <span class="th-val">usually £145/hr &mdash; included free</span>
+        </div>
+        <ul class="tier-feats">
+          <li><span class="tick">&#10022;</span><span>A global family &mdash; brotherhood, sisterhood &amp; belonging</span><span class="feat-val">Priceless</span></li>
+          <li><span class="tick">&#10022;</span><span>Full Identity, Mindset &amp; Emotional Control course</span><span class="feat-val">£197</span></li>
+          <li><span class="tick">&#10022;</span><span>Masterclass library (new videos weekly)</span><span class="feat-val">£127</span></li>
+          <li><span class="tick">&#10022;</span><span>Monthly workshops &amp; group coaching</span><span class="feat-val">£97</span></li>
+          <li><span class="tick">&#10022;</span><span>Community feed, discussions &amp; check-ins</span><span class="feat-val">£9</span></li>
+          <li><span class="tick">&#10022;</span><span>Articles, blogs &amp; resource library</span><span class="feat-val">£19</span></li>
+          <li><span class="tick">&#10022;</span><span>Accountability &amp; real connection</span><span class="feat-val">Priceless</span></li>
+          <li><span class="tick">&#10022;</span><span>Priority access to all retreats &amp; events</span><span class="feat-val">Save £1k/yr</span></li>
+          <li><span class="tick">&#10022;</span><span>Direct access to Zak, all Soul Ark coaches &amp; members</span><span class="feat-val">Priceless</span></li>
+        </ul>
+        <div class="tier-value">
+          <div class="tier-value-row"><span>Total value</span><span class="tv-strike">£594+<small>/mo</small></span></div>
+          <div class="tier-value-row tier-value-pay"><span>Yours for</span><span class="tv-pay">£47<small>/mo</small></span></div>
+        </div>
+        <a href="https://www.soulark.global/checkout/soul-ark-communtity" class="tier-cta">Join Soul Ark &rarr;</a>
+      </div>
+    </div>
+    <div class="upsell-box reveal d2">
+      <h4>Ready to Go Deeper?</h4>
+      <p>Full financial education, 1:1 mentorships, bespoke programmes, life coaching, therapy and more &mdash; all available inside. Book a call to find out what's right for you.</p>
+      <a href="https://calendly.com/zakjtowlson-soulark/book-a-call">Book a Call &rarr;</a>
     </div>
   </div>
 </section>
@@ -1264,53 +1220,6 @@
         <div class="team-role">Inner Healing Therapist</div>
         <p class="team-bio">Helps members identify and heal emotional wounds, overcome limiting beliefs, and find greater freedom, peace and wholeness.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- MEMBERSHIP TIERS -->
-<section class="tiers-section" id="join-bottom">
-  <div class="tiers-inner">
-    <div class="tiers-header">
-      <h2 class="features-title reveal d2" style="font-size:clamp(1.05rem,1.9vw,1.45rem);line-height:1.5;">Stop Staring at the Chaos of the World. Focus on <span>Your Own Life.</span></h2>
-    </div>
-    <div class="tiers-grid">
-
-      <div class="tier-card featured reveal d1">
-        <div class="tier-badge">The Family</div>
-        <div class="tier-name">Soul Ark Membership</div>
-        <div class="tier-headline">Anchored in Faith</div>
-        <div class="tier-price"><span class="amt">£47</span><span class="per">/ month</span></div>
-        <div class="tier-sub">Men &amp; women &middot; Cancel anytime</div>
-        <div class="tier-divider"></div>
-        <div class="tier-highlight">
-          <span class="th-tag">&#9733; Now Included</span>
-          <span class="th-main">Book private 1:1 calls with Zak</span>
-          <span class="th-val">usually £145/hr &mdash; included free</span>
-        </div>
-        <ul class="tier-feats">
-          <li><span class="tick">&#10022;</span><span>A global family &mdash; brotherhood, sisterhood &amp; belonging</span><span class="feat-val">Priceless</span></li>
-          <li><span class="tick">&#10022;</span><span>Full Identity, Mindset &amp; Emotional Control course</span><span class="feat-val">£197</span></li>
-          <li><span class="tick">&#10022;</span><span>Masterclass library (new videos weekly)</span><span class="feat-val">£127</span></li>
-          <li><span class="tick">&#10022;</span><span>Monthly workshops &amp; group coaching</span><span class="feat-val">£97</span></li>
-          <li><span class="tick">&#10022;</span><span>Community feed, discussions &amp; check-ins</span><span class="feat-val">£9</span></li>
-          <li><span class="tick">&#10022;</span><span>Articles, blogs &amp; resource library</span><span class="feat-val">£19</span></li>
-          <li><span class="tick">&#10022;</span><span>Accountability &amp; real connection</span><span class="feat-val">Priceless</span></li>
-          <li><span class="tick">&#10022;</span><span>Priority access to all retreats &amp; events</span><span class="feat-val">Save £1k/yr</span></li>
-          <li><span class="tick">&#10022;</span><span>Direct access to Zak, all Soul Ark coaches &amp; members</span><span class="feat-val">Priceless</span></li>
-        </ul>
-        <div class="tier-value">
-          <div class="tier-value-row"><span>Total value</span><span class="tv-strike">£594+<small>/mo</small></span></div>
-          <div class="tier-value-row tier-value-pay"><span>Yours for</span><span class="tv-pay">£47<small>/mo</small></span></div>
-        </div>
-        <a href="https://www.soulark.global/checkout/soul-ark-communtity" class="tier-cta">Join Soul Ark &rarr;</a>
-      </div>
-
-    </div>
-    <div class="upsell-box reveal d2">
-      <h4>Ready to Go Deeper?</h4>
-      <p>Full financial education, 1:1 mentorships, bespoke programmes, life coaching, therapy and more &mdash; all available inside. Book a call to find out what's right for you.</p>
-      <a href="https://calendly.com/zakjtowlson-soulark/book-a-call">Book a Call &rarr;</a>
     </div>
   </div>
 </section>
