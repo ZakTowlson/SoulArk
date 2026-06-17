@@ -823,14 +823,20 @@
     .map-section {
       position:relative; width:100%;
       background: transparent;
-      padding: 0; margin: -60px 0;
+      padding: 0;
       z-index: 5;
     }
-    .map-inner { position:relative; width:min(90vw, 720px); margin: 0 auto; }
+    /* fade top and bottom into the dark page */
+    .map-section::before, .map-section::after {
+      content:''; position:absolute; left:0; right:0; height:180px; z-index:6; pointer-events:none;
+    }
+    .map-section::before { top:0; background: linear-gradient(to bottom, var(--dark) 0%, transparent 100%); }
+    .map-section::after  { bottom:0; background: linear-gradient(to top, var(--dark) 0%, transparent 100%); }
+    .map-inner { position:relative; width:min(92vw, 720px); margin: 0 auto; z-index:5; }
     .map-bg {
       display:block; width:100%; height:auto;
       border-radius:50%;
-      filter: drop-shadow(0 0 40px rgba(183,151,67,0.25)) drop-shadow(0 0 80px rgba(183,151,67,0.1));
+      filter: drop-shadow(0 0 50px rgba(183,151,67,0.3)) drop-shadow(0 0 100px rgba(183,151,67,0.12));
     }
     .map-overlay { display:none; }
     .map-vignette { display:none; }
