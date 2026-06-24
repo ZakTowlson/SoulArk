@@ -121,6 +121,17 @@
     .scroll-line { width:1px; height:36px; background:linear-gradient(to bottom,var(--gold),transparent); animation:scrollLine 1.6s ease-in-out infinite; }
     @keyframes scrollLine { 0%{transform:scaleY(0);transform-origin:top} 49%{transform:scaleY(1);transform-origin:top} 50%{transform:scaleY(1);transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom} }
 
+    /* TESTIMONIAL CAROUSEL */
+    .tcarousel-wrap { background:var(--dark); border-top:1px solid rgba(183,151,67,.12); border-bottom:1px solid rgba(183,151,67,.12); overflow:hidden; padding:18px 0; }
+    .tcarousel-track { display:flex; gap:32px; width:max-content; animation:tcScroll 40s linear infinite; }
+    .tcarousel-wrap:hover .tcarousel-track { animation-play-state:paused; }
+    @keyframes tcScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    .tc-item { display:flex; align-items:center; gap:12px; flex-shrink:0; padding:0 16px; border-right:1px solid rgba(183,151,67,.1); }
+    .tc-item img { width:38px; height:38px; border-radius:50%; object-fit:cover; object-position:top; flex-shrink:0; border:1px solid rgba(183,151,67,.35); }
+    .tc-text { display:flex; flex-direction:column; gap:2px; max-width:260px; }
+    .tc-name { font-family:"Cinzel",serif; font-size:.48rem; letter-spacing:.15em; text-transform:uppercase; color:var(--gold); white-space:nowrap; }
+    .tc-quote { font-size:.76rem; color:var(--muted-dark); line-height:1.4; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
     /* PROOF BAR */
     .proof-bar { background:var(--dark2); border-top:1px solid rgba(183,151,67,.15); border-bottom:1px solid rgba(183,151,67,.15); display:flex; align-items:center; justify-content:center; gap:clamp(26px,6vw,84px); padding:28px 24px; flex-wrap:wrap; }
     .pb-stat { text-align:center; }
@@ -145,6 +156,15 @@
     .feature-list { list-style:none; display:flex; flex-direction:column; gap:16px; }
     .feature-list li { display:flex; gap:14px; font-size:.9rem; line-height:1.65; color:var(--light); font-weight:300; }
     .feature-list .tick { color:var(--gold); flex-shrink:0; font-size:.7rem; margin-top:4px; }
+
+    /* FINANCE CAROUSEL */
+    .fcarousel-wrap { background:var(--dark); border-top:1px solid rgba(183,151,67,.12); border-bottom:1px solid rgba(183,151,67,.12); overflow:hidden; padding:14px 0 16px; }
+    .fcarousel-label { font-family:"Cinzel",serif; font-size:.48rem; letter-spacing:.4em; text-transform:uppercase; color:var(--gold); text-align:center; margin-bottom:12px; opacity:.6; }
+    .fcarousel-track { display:flex; gap:10px; width:max-content; animation:fcScroll 32s linear infinite; padding:0 10px; }
+    .fcarousel-wrap:hover .fcarousel-track { animation-play-state:paused; }
+    @keyframes fcScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    .fc-item { width:150px; height:78px; overflow:hidden; border-radius:6px; flex-shrink:0; border:1px solid rgba(183,151,67,.15); position:relative; }
+    .fc-item img { width:100%; position:absolute; top:0; left:0; display:block; }
 
     /* FOR / NOT FOR */
     .fit-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; }
@@ -339,6 +359,106 @@
   </div>
 </section>
 
+<!-- TESTIMONIAL CAROUSEL -->
+<div class="tcarousel-wrap">
+  <div class="tcarousel-track">
+    <div class="tc-item">
+      <img src="assets/rev-isaac.jpg" alt="Isaac"/>
+      <div class="tc-text"><span class="tc-name">Isaac Chamberlain</span><span class="tc-quote">"Genuinely Christ-centred — not just in words, but in how people show up."</span></div>
+    </div>
+    <div class="tc-item">
+      <img src="assets/rev-tomas-macedonia.jpg" alt="Tomas"/>
+      <div class="tc-text"><span class="tc-name">Tomas Gjorgjievski</span><span class="tc-quote">"I laid in bed and cried — then felt a calmness I hadn't felt in ages."</span></div>
+    </div>
+    <div class="tc-item">
+      <img src="assets/rev-jakub-czech.jpg" alt="Jakub"/>
+      <div class="tc-text"><span class="tc-name">Jakub Kucera</span><span class="tc-quote">"One of the most transformative things I've invested in."</span></div>
+    </div>
+    <div class="tc-item">
+      <img src="assets/rev-lazar-serbia.jpg" alt="Lazar"/>
+      <div class="tc-text"><span class="tc-name">Lazar Dimitrijevic</span><span class="tc-quote">"I wake up with an energy I didn't know was possible."</span></div>
+    </div>
+    <div class="tc-item">
+      <img src="assets/rev-sam-slovakia.jpg" alt="Sam"/>
+      <div class="tc-text"><span class="tc-name">Sam Ferenc</span><span class="tc-quote">"Words can't describe the clarity I feel. Book the call."</span></div>
+    </div>
+    <div class="tc-item">
+      <img src="assets/member-miro-finland.png" alt="Miro"/>
+      <div class="tc-text"><span class="tc-name">Miro Lipsanen</span><span class="tc-quote">"The ROI was insane. Life-changing doesn't cover it."</span></div>
+    </div>
+    <div class="tc-item">
+      <img src="assets/member-justin-japan.png" alt="Justin"/>
+      <div class="tc-text"><span class="tc-name">Justin Bingham</span><span class="tc-quote">"Completely changed the way I view myself and my life."</span></div>
+    </div>
+    <div class="tc-item">
+      <img src="assets/rev-laryssa-usa.jpg" alt="Laryssa"/>
+      <div class="tc-text"><span class="tc-name">Laryssa Romero</span><span class="tc-quote">"A place where healing, growth and purpose come alive."</span></div>
+    </div>
+    <div class="tc-item">
+      <img src="assets/rev-nemanja-serbia.jpg" alt="Nemanja"/>
+      <div class="tc-text"><span class="tc-name">Nemanja</span><span class="tc-quote">"I am grateful to be able to call you my friend."</span></div>
+    </div>
+    <!-- duplicate set for seamless loop -->
+    <div class="tc-item">
+      <img src="assets/rev-isaac.jpg" alt="Isaac"/>
+      <div class="tc-text"><span class="tc-name">Isaac Chamberlain</span><span class="tc-quote">"Genuinely Christ-centred — not just in words, but in how people show up."</span></div>
+    </div>
+    <div class="tc-item">
+      <img src="assets/rev-tomas-macedonia.jpg" alt="Tomas"/>
+      <div class="tc-text"><span class="tc-name">Tomas Gjorgjievski</span><span class="tc-quote">"I laid in bed and cried — then felt a calmness I hadn't felt in ages."</span></div>
+    </div>
+    <div class="tc-item">
+      <img src="assets/rev-jakub-czech.jpg" alt="Jakub"/>
+      <div class="tc-text"><span class="tc-name">Jakub Kucera</span><span class="tc-quote">"One of the most transformative things I've invested in."</span></div>
+    </div>
+    <div class="tc-item">
+      <img src="assets/rev-lazar-serbia.jpg" alt="Lazar"/>
+      <div class="tc-text"><span class="tc-name">Lazar Dimitrijevic</span><span class="tc-quote">"I wake up with an energy I didn't know was possible."</span></div>
+    </div>
+    <div class="tc-item">
+      <img src="assets/rev-sam-slovakia.jpg" alt="Sam"/>
+      <div class="tc-text"><span class="tc-name">Sam Ferenc</span><span class="tc-quote">"Words can't describe the clarity I feel. Book the call."</span></div>
+    </div>
+    <div class="tc-item">
+      <img src="assets/member-miro-finland.png" alt="Miro"/>
+      <div class="tc-text"><span class="tc-name">Miro Lipsanen</span><span class="tc-quote">"The ROI was insane. Life-changing doesn't cover it."</span></div>
+    </div>
+    <div class="tc-item">
+      <img src="assets/member-justin-japan.png" alt="Justin"/>
+      <div class="tc-text"><span class="tc-name">Justin Bingham</span><span class="tc-quote">"Completely changed the way I view myself and my life."</span></div>
+    </div>
+    <div class="tc-item">
+      <img src="assets/rev-laryssa-usa.jpg" alt="Laryssa"/>
+      <div class="tc-text"><span class="tc-name">Laryssa Romero</span><span class="tc-quote">"A place where healing, growth and purpose come alive."</span></div>
+    </div>
+    <div class="tc-item">
+      <img src="assets/rev-nemanja-serbia.jpg" alt="Nemanja"/>
+      <div class="tc-text"><span class="tc-name">Nemanja</span><span class="tc-quote">"I am grateful to be able to call you my friend."</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- FINANCE WINS CAROUSEL -->
+<div class="fcarousel-wrap">
+  <div class="fcarousel-label">Finance Wins From The Brotherhood</div>
+  <div class="fcarousel-track">
+    <div class="fc-item"><img src="assets/community/finance-01.jpg" alt="Finance win"/></div>
+    <div class="fc-item"><img src="assets/community/finance-03.jpg" alt="Finance win"/></div>
+    <div class="fc-item"><img src="assets/community/finance-05.jpg" alt="Finance win"/></div>
+    <div class="fc-item"><img src="assets/community/finance-07.jpg" alt="Finance win"/></div>
+    <div class="fc-item"><img src="assets/community/finance-09.jpg" alt="Finance win"/></div>
+    <div class="fc-item"><img src="assets/community/finance-10.jpg" alt="Finance win"/></div>
+    <div class="fc-item"><img src="assets/community/finance-11.jpg" alt="Finance win"/></div>
+    <div class="fc-item"><img src="assets/community/finance-01.jpg" alt="Finance win"/></div>
+    <div class="fc-item"><img src="assets/community/finance-03.jpg" alt="Finance win"/></div>
+    <div class="fc-item"><img src="assets/community/finance-05.jpg" alt="Finance win"/></div>
+    <div class="fc-item"><img src="assets/community/finance-07.jpg" alt="Finance win"/></div>
+    <div class="fc-item"><img src="assets/community/finance-09.jpg" alt="Finance win"/></div>
+    <div class="fc-item"><img src="assets/community/finance-10.jpg" alt="Finance win"/></div>
+    <div class="fc-item"><img src="assets/community/finance-11.jpg" alt="Finance win"/></div>
+  </div>
+</div>
+
 <!-- PROOF BAR -->
 <div class="proof-bar">
   <div class="pb-stat"><span class="pb-num">200+</span><span class="pb-lbl">Men Coached</span></div>
@@ -392,7 +512,7 @@
 <section class="sec sec-dark2">
   <div class="sec-inner">
     <span class="sec-tag reveal">The question worth asking</span>
-    <h2 class="sec-headline reveal d1">Think about where<br>you were a year ago.<br><span class="gold">Are you that much<br>further?</span></h2>
+    <h2 class="sec-headline reveal d1">Where were you<br>a year ago?<br><span class="gold">And if nothing changes today,<br>where will you be next year?</span></h2>
     <div class="gold-rule reveal d2"></div>
 
     <p class="sec-sub reveal d2">Not to make you feel bad. To make you honest.</p>
