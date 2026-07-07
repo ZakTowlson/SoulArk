@@ -1,1029 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Soul Ark — Private Christian Brotherhood for Ambitious Men</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Soul Ark — Private Christian Brotherhood</title>
+<link rel="icon" href="assets/soul-ark-logo.png" type="image/png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --dark:   #09090b;
+    --dark2:  #0f0f12;
+    --dark3:  #141418;
+    --gold:   #b79743;
+    --gold2:  #d4af5a;
+    --white:  #f5f0e8;
+    --light:  #ccc8be;
+    --muted:  #7a7870;
+  }
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--dark); color:var(--white); font-family:'Lato',sans-serif; font-weight:300; overflow-x:hidden; }
 
-    :root {
-      --dark:  #0a0a0c;
-      --dark2: #111116;
-      --dark3: #181820;
-      --gold:  #b79743;
-      --gold2: #cead58;
-      --gold-glow: rgba(183,151,67,0.32);
-      --light:  #f5f0e8;
-      --light2: #faf7f2;
-      --white:  #ffffff;
-      --muted-dark:  #8888a0;
-      --muted-light: #7a7060;
-    }
+  /* NAV */
+  nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:18px 32px; background:rgba(9,9,11,.85); backdrop-filter:blur(12px); border-bottom:1px solid rgba(183,151,67,.12); }
+  .nav-logo img { height:36px; }
+  .nav-cta { font-family:'Cinzel',serif; font-size:.5rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); border:1px solid var(--gold); padding:10px 22px; text-decoration:none; transition:all .25s; }
+  .nav-cta:hover { background:var(--gold); color:var(--dark); }
 
-    html { scroll-behavior: smooth; }
-    body { font-family: "Lato", sans-serif; background: var(--dark); color: var(--light); overflow-x: hidden; }
-    ::-webkit-scrollbar { width: 3px; }
-    ::-webkit-scrollbar-track { background: var(--dark); }
-    ::-webkit-scrollbar-thumb { background: var(--gold); }
+  /* HERO */
+  #hero { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:120px 24px 80px; text-align:center; position:relative; overflow:hidden; }
+  .hero-bg { position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 50% 40%, rgba(183,151,67,.07) 0%, transparent 70%); pointer-events:none; }
+  .hero-eyebrow { font-family:'Cinzel',serif; font-size:.52rem; letter-spacing:.45em; text-transform:uppercase; color:var(--gold); margin-bottom:28px; display:block; }
+  .hero-logo { width:80px; margin:0 auto 28px; display:block; opacity:.9; }
+  h1 { font-family:'Cinzel Decorative',serif; font-weight:900; font-size:clamp(2.4rem,7vw,5.2rem); color:var(--white); line-height:1.08; margin-bottom:20px; }
+  h1 span { color:var(--gold); }
+  .hero-price { font-family:'Cinzel',serif; font-size:clamp(1rem,2.5vw,1.4rem); color:var(--gold2); letter-spacing:.08em; margin-bottom:36px; }
+  .hero-price em { font-style:normal; font-size:.75em; color:var(--muted); margin-left:8px; }
 
-    .logo-img    { height: 40px; width: auto; filter: brightness(0) saturate(100%) invert(62%) sepia(40%) saturate(600%) hue-rotate(5deg) brightness(90%); }
-    .logo-img-sm { height: 28px; width: auto; filter: brightness(0) saturate(100%) invert(62%) sepia(40%) saturate(600%) hue-rotate(5deg) brightness(90%); }
+  /* WHAT YOU GET */
+  .included { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1px; background:rgba(183,151,67,.1); border:1px solid rgba(183,151,67,.15); max-width:820px; margin:0 auto 44px; }
+  .inc-item { background:var(--dark2); padding:20px 24px; display:flex; align-items:flex-start; gap:12px; text-align:left; }
+  .inc-tick { color:var(--gold); font-size:.9rem; flex-shrink:0; margin-top:2px; }
+  .inc-text { font-size:.88rem; color:var(--light); line-height:1.6; }
+  .inc-text strong { color:var(--white); font-weight:700; display:block; font-size:.78rem; font-family:'Cinzel',serif; letter-spacing:.06em; text-transform:uppercase; margin-bottom:3px; }
 
-    /* LOADER */
-    #loader { position:fixed; inset:0; z-index:9999; background:var(--dark); display:flex; flex-direction:column; align-items:center; justify-content:center; transition:opacity .9s ease,visibility .9s ease; }
-    #loader.hidden { opacity:0; visibility:hidden; pointer-events:none; }
-    #loader .logo-img { height:70px; animation:loaderPulse 1.4s ease-in-out infinite; }
-    .loader-text { margin-top:20px; font-family:"Cinzel",serif; font-size:.6rem; letter-spacing:.5em; color:var(--gold); text-transform:uppercase; animation:loaderFade 1.4s ease-in-out infinite; text-align:center; max-width:320px; line-height:1.8; }
-    @keyframes loaderPulse { 0%,100%{opacity:.3;transform:scale(.88)} 50%{opacity:1;transform:scale(1)} }
-    @keyframes loaderFade  { 0%,100%{opacity:.2} 50%{opacity:1} }
+  /* CTA */
+  .hero-cta-wrap { display:flex; flex-direction:column; align-items:center; gap:12px; margin-top:8px; }
+  .btn-main { display:inline-block; background:var(--gold); color:var(--dark); font-family:'Cinzel',serif; font-size:.58rem; letter-spacing:.35em; text-transform:uppercase; padding:20px 48px; text-decoration:none; font-weight:700; transition:all .25s; border:none; cursor:pointer; }
+  .btn-main:hover { background:var(--gold2); transform:translateY(-1px); }
+  .cta-sub { font-size:.78rem; color:var(--muted); letter-spacing:.04em; }
+  .cta-sub span { color:var(--gold); }
+  .cancel-note { font-size:.72rem; color:var(--muted); margin-top:4px; }
 
-    /* FIXED CROSS */
-    #fixed-cross { position:fixed; top:0; left:50%; transform:translateX(-50%); width:2px; height:100vh; z-index:100; pointer-events:none; background:linear-gradient(to bottom,transparent 0%,var(--gold) 5%,var(--gold) 95%,transparent 100%); box-shadow:0 0 7px var(--gold-glow); transition:opacity .4s ease; }
-    #fixed-cross::before { content:""; position:absolute; top:22vh; left:50%; transform:translateX(-50%); width:52px; height:2px; background:var(--gold); box-shadow:0 0 14px var(--gold-glow); }
-    .oc-title { position:absolute; top:16vh; left:50%; transform:translateX(-50%); width:24px; height:2px; background:var(--gold); }
-    .oc-foot  { position:absolute; top:67vh; left:50%; transform:translateX(-50%) rotate(-14deg); width:38px; height:2px; background:var(--gold); }
-    .oc-jewel { position:absolute; top:calc(22vh - 8px); left:50%; transform:translateX(-50%); width:16px; height:16px; border-radius:50%; background:var(--dark2); border:2px solid var(--gold); box-shadow:0 0 0 5px rgba(183,151,67,.08),0 0 24px var(--gold-glow); animation:jewel 3s ease-in-out infinite; }
-    @keyframes jewel { 0%,100%{box-shadow:0 0 0 5px rgba(183,151,67,.08),0 0 24px var(--gold-glow)} 50%{box-shadow:0 0 0 8px rgba(183,151,67,.04),0 0 44px rgba(183,151,67,.5)} }
+  /* GOLD RULE */
+  .gold-rule { width:48px; height:1px; background:var(--gold); margin:0 auto 32px; }
 
-    /* NAV */
-    nav { position:fixed; top:0; left:0; right:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:16px 48px; background:rgba(10,10,12,.97); border-bottom:1px solid rgba(183,151,67,.12); transition:all .3s ease; }
-    nav.at-top { background:linear-gradient(to bottom,rgba(10,10,12,.95),transparent); border-bottom-color:transparent; }
-    .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
-    .nav-cta { font-family:"Cinzel",serif; font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; text-decoration:none; background:var(--gold); color:var(--dark); padding:9px 22px; transition:all .3s; }
-    .nav-cta:hover { background:var(--gold2); }
-    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
-    .hamburger span { display:block; width:24px; height:2px; background:var(--light); border-radius:2px; transition:all .3s; }
-    .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity:0; }
-    .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
-    .nav-drawer { display:none; position:fixed; top:60px; left:0; right:0; z-index:199; background:rgba(10,10,12,.98); border-bottom:1px solid rgba(183,151,67,.2); flex-direction:column; padding:20px 24px 28px; }
-    .nav-drawer.open { display:flex; }
-    .nav-drawer a { font-family:"Cinzel",serif; font-size:.75rem; letter-spacing:.2em; text-transform:uppercase; text-decoration:none; color:var(--light); padding:14px 0; border-bottom:1px solid rgba(183,151,67,.1); }
-    .nav-drawer a:last-child { border-bottom:none; background:var(--gold); color:var(--dark); text-align:center; padding:12px 0; margin-top:14px; }
+  /* NON PROFIT BANNER */
+  .np-banner { background:var(--dark2); border-top:1px solid rgba(183,151,67,.15); border-bottom:1px solid rgba(183,151,67,.15); padding:40px 24px; }
+  .np-inner { max-width:780px; margin:0 auto; display:flex; align-items:center; gap:40px; }
+  .np-img { width:140px; flex-shrink:0; border-radius:4px; object-fit:cover; }
+  .np-text { text-align:left; }
+  .np-tag { font-family:'Cinzel',serif; font-size:.46rem; letter-spacing:.4em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:12px; }
+  .np-headline { font-family:'Cinzel Decorative',serif; font-size:clamp(1rem,2.5vw,1.4rem); color:var(--white); line-height:1.3; margin-bottom:10px; }
+  .np-body { font-size:.84rem; color:var(--light); line-height:1.75; }
+  .np-body strong { color:var(--gold); }
 
-    /* ANIMATIONS */
-    @keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
-    .reveal,.reveal-l,.reveal-r { opacity:0; transition:opacity .9s cubic-bezier(.23,1,.32,1),transform .9s cubic-bezier(.23,1,.32,1); }
-    .reveal   { transform:translateY(34px); }
-    .reveal-l { transform:translateX(-34px); }
-    .reveal-r { transform:translateX(34px); }
-    .reveal.v,.reveal-l.v,.reveal-r.v { opacity:1; transform:none; }
-    .d1{transition-delay:.08s} .d2{transition-delay:.18s} .d3{transition-delay:.28s} .d4{transition-delay:.42s}
+  /* TRANSFORMATION SECTION */
+  .transform-section { padding:80px 24px; background:var(--dark2); border-top:1px solid rgba(183,151,67,.1); }
+  .transform-inner { max-width:900px; margin:0 auto; text-align:center; }
+  .transform-headline { font-family:'Cinzel Decorative',serif; font-size:clamp(1.8rem,4vw,3rem); color:var(--white); line-height:1.1; margin-bottom:28px; }
+  .transform-headline span { color:var(--gold); }
+  .transform-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-top:40px; text-align:left; }
+  .transform-col { padding:36px 32px; }
+  .transform-col.stop { background:rgba(255,255,255,.02); border:1px solid rgba(255,255,255,.06); }
+  .transform-col.start { background:rgba(183,151,67,.04); border:1px solid rgba(183,151,67,.2); }
+  .transform-col-label { font-family:'Cinzel',serif; font-size:.5rem; letter-spacing:.35em; text-transform:uppercase; margin-bottom:20px; }
+  .transform-col.stop .transform-col-label { color:var(--muted); }
+  .transform-col.start .transform-col-label { color:var(--gold); }
+  .transform-col ul { list-style:none; display:flex; flex-direction:column; gap:13px; }
+  .transform-col.stop ul li { font-size:.86rem; color:var(--muted); line-height:1.6; padding-left:16px; position:relative; }
+  .transform-col.stop ul li::before { content:'—'; position:absolute; left:0; color:rgba(255,255,255,.2); }
+  .transform-col.start ul li { font-size:.86rem; color:var(--light); line-height:1.6; padding-left:16px; position:relative; }
+  .transform-col.start ul li::before { content:'✦'; position:absolute; left:0; color:var(--gold); font-size:.6rem; top:3px; }
 
-    /* BUTTONS */
-    .btn-primary { display:inline-block; font-family:"Cinzel",serif; font-size:.62rem; letter-spacing:.28em; text-transform:uppercase; text-decoration:none; padding:16px 40px; background:var(--gold); color:var(--dark); transition:all .35s cubic-bezier(.23,1,.32,1); cursor:pointer; border:none; }
-    .btn-primary:hover { background:var(--gold2); box-shadow:0 0 36px var(--gold-glow); }
-    .btn-ghost { display:inline-block; font-family:"Cinzel",serif; font-size:.62rem; letter-spacing:.28em; text-transform:uppercase; text-decoration:none; padding:16px 40px; border:1px solid var(--gold); color:var(--gold); background:transparent; transition:all .35s cubic-bezier(.23,1,.32,1); }
-    .btn-ghost:hover { background:var(--gold); color:var(--dark); }
+  /* RESULT SECTION */
+  .result-section { padding:80px 24px; background:var(--dark); border-top:1px solid rgba(183,151,67,.1); }
+  .result-inner { max-width:960px; margin:0 auto; text-align:center; }
+  .result-sub { font-size:.9rem; color:var(--muted); line-height:1.8; max-width:600px; margin:0 auto 44px; }
+  .result-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(183,151,67,.1); border:1px solid rgba(183,151,67,.1); text-align:left; }
+  .result-card { background:var(--dark2); padding:32px 28px; }
+  .result-icon { color:var(--gold); font-size:.8rem; margin-bottom:12px; }
+  .result-title { font-family:'Cinzel',serif; font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; color:var(--white); margin-bottom:12px; }
+  .result-card p { font-size:.83rem; color:var(--muted); line-height:1.75; }
 
-    /* SECTION BASE */
-    .sec { padding:100px 24px; position:relative; overflow:hidden; }
-    .sec-dark  { background:var(--dark); }
-    .sec-dark2 { background:var(--dark2); }
-    .sec-dark3 { background:var(--dark3); }
-    .sec::before { content:""; position:absolute; inset:0; pointer-events:none; }
-    .sec-glow::before { background:radial-gradient(ellipse at 50% 0%,rgba(183,151,67,.07) 0%,transparent 60%); }
-    .sec-inner      { max-width:780px; margin:0 auto; position:relative; z-index:2; }
-    .sec-inner-wide { max-width:1080px; margin:0 auto; position:relative; z-index:2; }
-    .sec-center { text-align:center; }
+  @media(max-width:680px){
+    .transform-grid { grid-template-columns:1fr; }
+    .transform-col { padding:28px 20px; }
+    .result-grid { grid-template-columns:1fr; }
+  }
 
-    .sec-tag { font-family:"Cinzel",serif; font-size:.52rem; letter-spacing:.5em; text-transform:uppercase; color:var(--gold); margin-bottom:16px; display:block; }
-    .sec-tag-muted { color:var(--muted-dark); }
-    .sec-headline { font-family:"Cinzel Decorative",serif; font-weight:900; font-size:clamp(1.8rem,3.5vw,3rem); line-height:1.1; color:var(--white); margin-bottom:20px; }
-    .sec-headline .gold { color:var(--gold); }
-    .sec-sub { font-size:.95rem; line-height:1.9; font-weight:300; color:var(--muted-dark); }
-    .gold-rule { width:48px; height:2px; background:var(--gold); margin:22px 0; }
-    .gold-rule-center { margin:22px auto; }
-    .qualifier { font-family:"Cinzel",serif; font-size:.5rem; letter-spacing:.28em; text-transform:uppercase; color:var(--muted-dark); margin-top:16px; }
+  /* WINS SECTION */
+  .wins-section { padding:72px 0; background:var(--dark); }
+  .wins-header { text-align:center; padding:0 24px; margin-bottom:48px; }
+  .sec-tag { font-family:'Cinzel',serif; font-size:.46rem; letter-spacing:.4em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:14px; }
+  .wins-headline { font-family:'Cinzel Decorative',serif; font-size:clamp(1.4rem,3vw,2.2rem); color:var(--white); line-height:1.2; }
+  .wins-headline span { color:var(--gold); }
 
-    /* HERO */
-    #hero { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; background:var(--dark2); position:relative; overflow:hidden; padding:140px 28px 100px; }
-    #hero::before { content:""; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 40%,rgba(183,151,67,.10) 0%,transparent 65%); }
-    .embers { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
-    .ember { position:absolute; border-radius:50%; background:var(--gold); opacity:0; animation:floatEmber linear infinite; }
-    @keyframes floatEmber { 0%{transform:translateY(100vh);opacity:0} 10%{opacity:.6} 90%{opacity:.15} 100%{transform:translateY(-20px) translateX(var(--drift));opacity:0} }
-    .hero-inner { position:relative; z-index:3; max-width:840px; margin:0 auto; }
-    .hero-eyebrow { font-family:"Cinzel",serif; font-size:.52rem; letter-spacing:.55em; text-transform:uppercase; color:var(--gold); opacity:0; animation:fadeUp 1s ease .3s forwards; margin-bottom:24px; display:block; }
-    .hero-title { font-family:"Cinzel Decorative",serif; font-weight:900; font-size:clamp(2.6rem,7vw,5.5rem); line-height:1.05; color:var(--white); text-shadow:0 0 60px rgba(183,151,67,.2); opacity:0; animation:fadeUp 1s ease .5s forwards; margin-bottom:14px; }
-    .hero-title-sub { font-family:"Cinzel",serif; font-size:clamp(1rem,2vw,1.3rem); color:var(--gold); opacity:0; animation:fadeUp 1s ease .65s forwards; margin-bottom:32px; letter-spacing:.05em; font-weight:400; }
-    .hero-body { font-size:clamp(.92rem,1.5vw,1.05rem); line-height:1.9; font-weight:300; color:var(--muted-dark); max-width:660px; margin:0 auto 42px; opacity:0; animation:fadeUp 1s ease .82s forwards; }
-    .hero-body strong { color:var(--light); font-weight:400; }
-    .hero-cta-wrap { display:flex; flex-direction:column; align-items:center; gap:12px; opacity:0; animation:fadeUp 1s ease 1s forwards; }
-    .hero-flags { margin-top:60px; opacity:0; animation:fadeUp 1s ease 1.2s forwards; }
-    .hero-flags-label { font-family:"Cinzel",serif; font-size:.48rem; letter-spacing:.4em; text-transform:uppercase; color:var(--muted-dark); display:block; margin-bottom:12px; }
-    .hero-flags-row { font-size:1.5rem; letter-spacing:.12em; filter:drop-shadow(0 2px 6px rgba(0,0,0,.5)); }
-    .scroll-cue { position:absolute; bottom:32px; left:50%; transform:translateX(-50%); z-index:10; display:flex; flex-direction:column; align-items:center; gap:7px; opacity:0; animation:fadeUp 1s ease 1.6s forwards; }
-    .scroll-cue span { font-family:"Cinzel",serif; font-size:.48rem; letter-spacing:.45em; color:var(--gold); text-transform:uppercase; }
-    .scroll-line { width:1px; height:36px; background:linear-gradient(to bottom,var(--gold),transparent); animation:scrollLine 1.6s ease-in-out infinite; }
-    @keyframes scrollLine { 0%{transform:scaleY(0);transform-origin:top} 49%{transform:scaleY(1);transform-origin:top} 50%{transform:scaleY(1);transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom} }
+  /* MASONRY SCROLL ROWS */
+  .wins-rows { display:flex; flex-direction:column; gap:12px; overflow:hidden; }
+  .wins-row { display:flex; gap:12px; width:max-content; }
+  .wins-row.row-left { animation:scrollLeft 55s linear infinite; }
+  .wins-row.row-right { animation:scrollRight 50s linear infinite; }
+  .wins-row.row-left2 { animation:scrollLeft 60s linear infinite; }
+  .wins-rows:hover .wins-row { animation-play-state:paused; }
+  @keyframes scrollLeft  { 0%{transform:translateX(0)}   100%{transform:translateX(-50%)} }
+  @keyframes scrollRight { 0%{transform:translateX(-50%)} 100%{transform:translateX(0)} }
+  .win-card { height:240px; width:auto; flex-shrink:0; border-radius:8px; overflow:hidden; border:1px solid rgba(183,151,67,.1); }
+  .win-card img { height:100%; width:auto; object-fit:cover; display:block; }
 
-    /* TESTIMONIAL CAROUSEL */
-    .tcarousel-wrap { background:var(--dark); border-top:1px solid rgba(183,151,67,.12); border-bottom:1px solid rgba(183,151,67,.12); overflow:hidden; padding:18px 0; }
-    .tcarousel-track { display:flex; gap:32px; width:max-content; animation:tcScroll 40s linear infinite; }
-    .tcarousel-wrap:hover .tcarousel-track { animation-play-state:paused; }
-    @keyframes tcScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-    .tc-item { display:flex; align-items:center; gap:12px; flex-shrink:0; padding:0 16px; border-right:1px solid rgba(183,151,67,.1); }
-    .tc-item img { width:38px; height:38px; border-radius:50%; object-fit:cover; object-position:top; flex-shrink:0; border:1px solid rgba(183,151,67,.35); }
-    .tc-text { display:flex; flex-direction:column; gap:2px; max-width:260px; }
-    .tc-name { font-family:"Cinzel",serif; font-size:.48rem; letter-spacing:.15em; text-transform:uppercase; color:var(--gold); white-space:nowrap; }
-    .tc-quote { font-size:.76rem; color:var(--muted-dark); line-height:1.4; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  /* FOOTER */
+  footer { padding:48px 24px; text-align:center; border-top:1px solid rgba(183,151,67,.1); background:var(--dark); }
+  .footer-logo { width:48px; margin:0 auto 16px; opacity:.6; }
+  .footer-copy { font-size:.72rem; color:var(--muted); letter-spacing:.12em; }
 
-    /* PROOF BAR */
-    .proof-bar { background:var(--dark2); border-top:1px solid rgba(183,151,67,.15); border-bottom:1px solid rgba(183,151,67,.15); display:flex; align-items:center; justify-content:center; gap:clamp(26px,6vw,84px); padding:28px 24px; flex-wrap:wrap; }
-    .pb-stat { text-align:center; }
-    .pb-num { display:block; font-family:"Cinzel Decorative",serif; font-weight:900; font-size:clamp(1.4rem,2.2vw,1.9rem); color:var(--gold); line-height:1; }
-    .pb-lbl { display:block; font-family:"Cinzel",serif; font-size:.5rem; letter-spacing:.25em; text-transform:uppercase; color:var(--muted-dark); margin-top:8px; }
-    .pb-sep { width:1px; height:32px; background:rgba(183,151,67,.2); }
+  /* REVEAL */
+  .reveal { opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.visible { opacity:1; transform:none; }
+  .d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s} .d4{transition-delay:.4s}
 
-    /* AGITATION */
-    .ag-list { margin:40px 0; display:flex; flex-direction:column; gap:0; }
-    .ag-item { padding:22px 0; border-bottom:1px solid rgba(183,151,67,.1); display:flex; gap:18px; align-items:flex-start; }
-    .ag-item:first-child { border-top:1px solid rgba(183,151,67,.1); }
-    .ag-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); flex-shrink:0; margin-top:9px; }
-    .ag-text { font-size:.96rem; line-height:1.82; color:var(--light); font-weight:300; }
-    .ag-text strong { color:var(--gold); font-weight:400; }
-
-    /* PULLQUOTE */
-    .pullquote { padding:32px 36px; border-left:3px solid var(--gold); background:rgba(183,151,67,.04); margin:40px 0; }
-    .pullquote p { font-family:"Cinzel",serif; font-size:clamp(.88rem,1.5vw,1.1rem); line-height:1.72; color:var(--light); font-style:italic; }
-    .pullquote cite { display:block; margin-top:12px; font-family:"Lato",sans-serif; font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); font-style:normal; opacity:.7; }
-
-    /* FEATURE LIST */
-    .feature-list { list-style:none; display:flex; flex-direction:column; gap:16px; }
-    .feature-list li { display:flex; gap:14px; font-size:.9rem; line-height:1.65; color:var(--light); font-weight:300; }
-    .feature-list .tick { color:var(--gold); flex-shrink:0; font-size:.7rem; margin-top:4px; }
-
-    /* FINANCE CAROUSEL */
-    .fcarousel-wrap { background:var(--dark); border-top:1px solid rgba(183,151,67,.12); border-bottom:1px solid rgba(183,151,67,.12); overflow:hidden; padding:14px 0 16px; }
-    .fcarousel-label { font-family:"Cinzel",serif; font-size:.48rem; letter-spacing:.4em; text-transform:uppercase; color:var(--gold); text-align:center; margin-bottom:12px; opacity:.6; }
-    .fcarousel-track { display:flex; gap:10px; width:max-content; animation:fcScroll 32s linear infinite; padding:0 10px; }
-    .fcarousel-wrap:hover .fcarousel-track { animation-play-state:paused; }
-    @keyframes fcScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-    .fc-item { width:150px; height:78px; overflow:hidden; border-radius:6px; flex-shrink:0; border:1px solid rgba(183,151,67,.15); position:relative; }
-    .fc-item img { width:100%; position:absolute; top:0; left:0; display:block; }
-
-    /* FOR / NOT FOR */
-    .fit-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; }
-    .fit-col { padding:60px 56px; }
-    .fit-col.yes { background:var(--dark3); }
-    .fit-col.no  { background:var(--dark2); }
-    .fit-col-tag { font-family:"Cinzel",serif; font-size:.52rem; letter-spacing:.45em; text-transform:uppercase; margin-bottom:10px; display:block; }
-    .fit-col.yes .fit-col-tag { color:var(--gold); }
-    .fit-col.no  .fit-col-tag { color:var(--muted-dark); }
-    .fit-col h3 { font-family:"Cinzel Decorative",serif; font-size:1.3rem; line-height:1.2; margin-bottom:28px; }
-    .fit-col.yes h3 { color:var(--white); }
-    .fit-col.no  h3 { color:var(--muted-dark); }
-    .fit-list { list-style:none; display:flex; flex-direction:column; gap:18px; }
-    .fit-list li { display:flex; gap:14px; font-size:.87rem; line-height:1.65; }
-    .fit-col.yes .fit-list li { color:var(--light); }
-    .fit-col.no  .fit-list li { color:var(--muted-dark); }
-    .fit-icon-yes { color:var(--gold); flex-shrink:0; }
-    .fit-icon-no  { color:rgba(139,139,160,.4); flex-shrink:0; }
-
-    /* TESTIMONIALS */
-    .featured-review { display:grid; grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr); background:var(--dark3); border:1px solid rgba(183,151,67,.25); border-radius:16px; overflow:hidden; margin-bottom:40px; box-shadow:0 24px 60px rgba(0,0,0,.45); }
-    .featured-review-img { position:relative; min-height:340px; }
-    .featured-review-img img { width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
-    .fr-badge { position:absolute; top:16px; left:16px; font-family:"Cinzel",serif; font-size:.5rem; letter-spacing:.22em; text-transform:uppercase; color:var(--dark); background:var(--gold); padding:7px 14px; border-radius:30px; }
-    .featured-review-body { padding:clamp(28px,4vw,52px); display:flex; flex-direction:column; justify-content:center; }
-    .fr-stars { color:var(--gold); font-size:1rem; letter-spacing:3px; margin-bottom:18px; }
-    .fr-quote { font-family:"Cinzel",serif; font-style:italic; font-size:clamp(.96rem,1.5vw,1.28rem); line-height:1.6; color:var(--light); margin-bottom:26px; }
-    .fr-quote .gold { color:var(--gold); }
-    .fr-name { font-family:"Cinzel Decorative",serif; font-size:1.1rem; color:var(--white); }
-    .fr-role { font-family:"Cinzel",serif; font-size:.55rem; letter-spacing:.25em; text-transform:uppercase; color:var(--gold); margin-top:6px; }
-    .review-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
-    .review-card { background:var(--dark3); border:1px solid rgba(183,151,67,.12); padding:24px; position:relative; transition:border-color .25s ease; }
-    .review-card:hover { border-color:rgba(183,151,67,.4); }
-    .review-card-top { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
-    .review-avatar { width:40px; height:40px; border-radius:50%; object-fit:cover; flex-shrink:0; }
-    .review-name { font-size:.86rem; font-weight:700; color:var(--light); }
-    .review-sub { font-size:.7rem; color:var(--muted-dark); margin-top:2px; }
-    .review-stars { color:var(--gold); font-size:.82rem; letter-spacing:1px; margin-bottom:10px; }
-    .review-text { font-size:.82rem; line-height:1.65; color:var(--muted-dark); }
-
-    /* VISION */
-    .vision-blocks { display:flex; flex-direction:column; gap:0; margin-top:52px; }
-    .vision-block { padding:36px 0; border-bottom:1px solid rgba(183,151,67,.1); }
-    .vision-block:last-child { border-bottom:none; }
-    .vision-num { font-family:"Cinzel Decorative",serif; font-size:3rem; font-weight:900; color:rgba(183,151,67,.08); line-height:1; margin-bottom:10px; }
-    .vision-title { font-family:"Cinzel",serif; font-size:.8rem; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
-    .vision-body { font-size:.9rem; line-height:1.85; color:var(--muted-dark); font-weight:300; }
-
-    /* STEPS */
-    .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
-    .step { padding:44px 36px; background:var(--dark3); position:relative; }
-    .step-num { font-family:"Cinzel Decorative",serif; font-size:3rem; font-weight:900; color:rgba(183,151,67,.12); line-height:1; margin-bottom:18px; }
-    .step-title { font-family:"Cinzel",serif; font-size:.76rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
-    .step-body { font-size:.84rem; line-height:1.8; color:var(--muted-dark); }
-    .step-connector { position:absolute; top:50%; right:-18px; transform:translateY(-50%); color:var(--gold); font-size:1.1rem; z-index:2; }
-
-    /* FAQ */
-    .faq-list { display:flex; flex-direction:column; gap:0; margin-top:48px; }
-    .faq-item { border-bottom:1px solid rgba(183,151,67,.12); }
-    .faq-item:first-child { border-top:1px solid rgba(183,151,67,.12); }
-    .faq-q { padding:22px 0; font-family:"Cinzel",serif; font-size:.78rem; letter-spacing:.04em; color:var(--light); cursor:pointer; display:flex; justify-content:space-between; align-items:center; list-style:none; user-select:none; }
-    .faq-q::-webkit-details-marker { display:none; }
-    .faq-q::after { content:"+"; color:var(--gold); font-size:1.2rem; font-family:"Lato",sans-serif; flex-shrink:0; margin-left:16px; transition:transform .3s; }
-    details[open] .faq-q::after { transform:rotate(45deg); }
-    .faq-a { padding:0 0 22px; font-size:.88rem; line-height:1.85; color:var(--muted-dark); font-weight:300; max-width:680px; }
-
-    /* MANIFESTO BANNER */
-    .manifesto-banner { background:var(--dark); padding:90px 24px; text-align:center; position:relative; }
-    .manifesto-banner::before { content:""; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 50%,rgba(183,151,67,.06) 0%,transparent 70%); }
-    .manifesto-text { font-family:"Cinzel",serif; font-size:clamp(1rem,2vw,1.48rem); line-height:2.1; color:var(--white); max-width:680px; margin:0 auto; position:relative; z-index:2; font-weight:400; }
-    .manifesto-text em { color:var(--gold); font-style:normal; }
-
-    /* FINAL CTA */
-    .final-cta { padding:130px 24px; text-align:center; background:var(--dark2); position:relative; overflow:hidden; }
-    .final-cta::before { content:""; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 50%,rgba(183,151,67,.10) 0%,transparent 65%); }
-    .final-cta-inner { position:relative; z-index:2; max-width:700px; margin:0 auto; }
-    .final-warning { font-family:"Cinzel",serif; font-size:.5rem; letter-spacing:.28em; text-transform:uppercase; color:var(--muted-dark); margin-top:22px; line-height:2; }
-
-    /* PRICE CALLOUT */
-    .price-callout { background:var(--dark3); border:1px solid rgba(183,151,67,.2); padding:36px 40px; margin-top:44px; }
-    .price-callout h4 { font-family:"Cinzel",serif; font-size:.58rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
-    .price-callout .price { font-family:"Cinzel Decorative",serif; font-size:2.4rem; color:var(--white); line-height:1; }
-    .price-callout .price-per { font-size:.8rem; color:var(--muted-dark); margin-left:6px; }
-    .price-callout p { font-size:.84rem; color:var(--muted-dark); margin-top:10px; line-height:1.75; }
-
-    /* MENTORSHIP BLOCK */
-    .mentorship-block { background:var(--dark3); border:1px solid var(--gold); padding:52px 48px; position:relative; margin-top:32px; }
-    .mentorship-badge { position:absolute; top:-14px; left:40px; background:var(--gold); color:var(--dark); font-family:"Cinzel",serif; font-size:.48rem; letter-spacing:.22em; text-transform:uppercase; padding:6px 18px; }
-    .mentorship-block h3 { font-family:"Cinzel Decorative",serif; font-size:1.6rem; color:var(--white); margin-bottom:8px; line-height:1.2; }
-    .mentorship-block .subtitle { font-family:"Cinzel",serif; font-size:.68rem; letter-spacing:.16em; color:var(--gold2); text-transform:uppercase; margin-bottom:22px; display:block; }
-    .mentorship-block p { font-size:.88rem; line-height:1.82; color:var(--muted-dark); margin-bottom:20px; }
-    .mentorship-value { border:1px solid rgba(183,151,67,.28); padding:18px 22px; text-align:center; margin:24px 0; }
-    .mentorship-value .val-label { font-family:"Cinzel",serif; font-size:.5rem; letter-spacing:.28em; text-transform:uppercase; color:var(--muted-dark); display:block; margin-bottom:6px; }
-    .mentorship-value .val-num { font-family:"Cinzel Decorative",serif; font-size:1.4rem; color:var(--muted-dark); text-decoration:line-through; text-decoration-color:rgba(183,151,67,.5); }
-    .mentorship-value .val-price { display:block; font-family:"Cinzel",serif; font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-top:8px; }
-
-    /* FOOTER */
-    footer { background:var(--dark); padding:36px 48px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(183,151,67,.12); }
-    .footer-brand { display:flex; align-items:center; gap:10px; }
-    .footer-brand-text { font-family:"Cinzel",serif; font-size:.65rem; letter-spacing:.22em; color:var(--gold); text-transform:uppercase; }
-    .footer-copy { font-size:.6rem; color:var(--muted-dark); }
-
-    /* RESPONSIVE */
-    @media(max-width:900px){
-      .fit-grid { grid-template-columns:1fr; }
-      .fit-col { padding:44px 28px; }
-      .steps { grid-template-columns:1fr; }
-      .step-connector { display:none; }
-      .review-grid { grid-template-columns:1fr; }
-      .featured-review { grid-template-columns:1fr; }
-      .featured-review-img { aspect-ratio:4/3; min-height:0; }
-    }
-    @media(max-width:768px){
-      nav { padding:14px 20px; }
-      .nav-cta { display:none; }
-      .hamburger { display:flex; }
-      #fixed-cross { display:none; }
-      .sec { padding:72px 20px; }
-      .fit-col { padding:36px 20px; }
-      .mentorship-block { padding:44px 28px; }
-      footer { flex-direction:column; gap:16px; text-align:center; }
-      .manifesto-banner { padding:60px 20px; }
-    }
-    @media(max-width:600px){ .pb-sep { display:none; } }
-  </style>
+  /* MOBILE */
+  @media(max-width:680px){
+    nav { padding:14px 20px; }
+    .np-inner { flex-direction:column; gap:24px; text-align:center; }
+    .np-text { text-align:center; }
+    .np-img { width:100%; max-width:320px; }
+    .included { grid-template-columns:1fr; }
+    .win-card { height:180px; }
+  }
+</style>
 </head>
 <body>
 
-<!-- LOADER -->
-<div id="loader">
-  <img class="logo-img" src="assets/logo-b6cfa02c.png" alt="Soul Ark"/>
-  <div class="loader-text">Brotherhood. Purpose. Calling.</div>
-</div>
-
-<!-- FIXED CROSS -->
-<div id="fixed-cross">
-  <div class="oc-title"></div>
-  <div class="oc-jewel"></div>
-  <div class="oc-foot"></div>
-</div>
-
 <!-- NAV -->
-<nav id="mainNav">
+<nav>
   <a href="#hero" class="nav-logo">
-    <img class="logo-img" src="assets/logo-b6cfa02c.png" alt="Soul Ark"/>
+    <img src="assets/logo-b6cfa02c.png" alt="Soul Ark"/>
   </a>
-  <a href="https://calendly.com/zakjtowlson-soulark/book-a-call" class="nav-cta">Apply Now</a>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="https://www.instagram.com/thevikingchristian/" class="nav-cta" target="_blank" rel="noopener">DM to Apply</a>
 </nav>
 
-<!-- MOBILE DRAWER -->
-<div class="nav-drawer" id="navDrawer">
-  <a href="#what-is">What Is Soul Ark</a>
-  <a href="#for-you">Is This For You</a>
-  <a href="#apply">How to Apply</a>
-  <a href="https://calendly.com/zakjtowlson-soulark/book-a-call">Apply for Soul Ark →</a>
-</div>
-
-<!-- ═══════════════════════════════════════════ -->
-<!-- HERO                                        -->
-<!-- ═══════════════════════════════════════════ -->
+<!-- ═══════════════════ HERO ═══════════════════ -->
 <section id="hero">
-  <div class="embers" id="embers"></div>
-  <div class="hero-inner">
+  <div class="hero-bg"></div>
 
-    <span class="hero-eyebrow">Soul Ark &middot; Private Christian Brotherhood</span>
+  <span class="hero-eyebrow reveal">Private Christian Brotherhood</span>
+  <img src="assets/logo-b6cfa02c.png" alt="Soul Ark" class="hero-logo reveal d1"/>
 
-    <h1 class="hero-title">You know you're<br>capable of more.</h1>
-    <p class="hero-title-sub">You just can't figure out why you're still not there.</p>
+  <h1 class="reveal d1">Soul<br><span>Ark</span></h1>
 
-    <p class="hero-body">
-      You're working. You're pushing. You've had the breakthroughs. And you keep ending up back in the same place.<br><br>
-      Not because you're weak. Because you're carrying it alone — in an environment that isn't built for where you're trying to go.<br><br>
-      <strong>Soul Ark is where men like you stop drifting and start becoming.</strong>
-    </p>
-
-    <div class="hero-cta-wrap">
-      <a href="https://calendly.com/zakjtowlson-soulark/book-a-call" class="btn-primary">Apply for Soul Ark &rarr;</a>
-    </div>
-
-    <div class="hero-flags">
-      <span class="hero-flags-label">Brothers currently in</span>
-      <span class="hero-flags-row" role="img" aria-label="UK, Poland, USA, Finland, Slovakia, Czechia, Serbia, Japan, North Macedonia">🇬🇧 🇵🇱 🇺🇸 🇫🇮 🇸🇰 🇨🇿 🇷🇸 🇯🇵 🇲🇰</span>
-    </div>
-
+  <div class="hero-price reveal d2">
+    £197 / month <em>· application only</em>
   </div>
-  <div class="scroll-cue">
-    <span>Keep reading</span>
-    <div class="scroll-line"></div>
+
+  <div class="gold-rule reveal d2"></div>
+
+  <div class="included reveal d3">
+    <div class="inc-item">
+      <span class="inc-tick">✦</span>
+      <span class="inc-text"><strong>Your Mindset</strong>Stop self-sabotaging, reacting out of anger and falling back into old habits. Start pushing through, making clear decisions and becoming the man you already know you're supposed to be</span>
+    </div>
+    <div class="inc-item">
+      <span class="inc-tick">✦</span>
+      <span class="inc-text"><strong>Your Discipline</strong>Stop starting strong and fading off. Group coaching calls, accountability sessions, motivation talks and workshops every week — brothers who notice when you slip</span>
+    </div>
+    <div class="inc-item">
+      <span class="inc-tick">✦</span>
+      <span class="inc-text"><strong>Your Finances</strong>Stop guessing. Private 1:1 calendar access to Nemanja, our dedicated finance mentor — real strategy, real wins, real guidance built around your situation</span>
+    </div>
+    <div class="inc-item">
+      <span class="inc-tick">✦</span>
+      <span class="inc-text"><strong>Your Faith</strong>Stop going through the motions. Surrounded by men who actually live their faith — not just on Sundays. Brotherhood that holds the standard and walks it out daily</span>
+    </div>
+    <div class="inc-item">
+      <span class="inc-tick">✦</span>
+      <span class="inc-text"><strong>Your 1:1 with Zak</strong>Private calendar access to Zak — ICF &amp; EMCC certified life coach and mentor. Not a webinar. A real conversation about your real life, whenever you need it</span>
+    </div>
+    <div class="inc-item">
+      <span class="inc-tick">✦</span>
+      <span class="inc-text"><strong>Retreats, Events &amp; a Movement</strong>Stop isolating. Access to all Soul Ark retreats and events worldwide. And something bigger — Soul Ark isn't just a group chat. The men joining now are the ones who were here first</span>
+    </div>
+  </div>
+
+  <div class="hero-cta-wrap reveal d4">
+    <a href="https://www.instagram.com/thevikingchristian/" class="btn-main" target="_blank" rel="noopener">DM &ldquo;Rebuild&rdquo; on Instagram &rarr;</a>
+    <p class="cta-sub">DM <span>@thevikingchristian</span> the word <span>"rebuild"</span> to apply</p>
+    <p class="cancel-note">Try it for a month &middot; Cancel anytime &middot; You cannot buy your way in without applying</p>
   </div>
 </section>
 
-<!-- TESTIMONIAL CAROUSEL -->
-<div class="tcarousel-wrap">
-  <div class="tcarousel-track">
-    <div class="tc-item">
-      <img src="assets/rev-isaac.jpg" alt="Isaac"/>
-      <div class="tc-text"><span class="tc-name">Isaac Chamberlain</span><span class="tc-quote">"Genuinely Christ-centred — not just in words, but in how people show up."</span></div>
-    </div>
-    <div class="tc-item">
-      <img src="assets/rev-tomas-macedonia.jpg" alt="Tomas"/>
-      <div class="tc-text"><span class="tc-name">Tomas Gjorgjievski</span><span class="tc-quote">"I laid in bed and cried — then felt a calmness I hadn't felt in ages."</span></div>
-    </div>
-    <div class="tc-item">
-      <img src="assets/rev-jakub-czech.jpg" alt="Jakub"/>
-      <div class="tc-text"><span class="tc-name">Jakub Kucera</span><span class="tc-quote">"One of the most transformative things I've invested in."</span></div>
-    </div>
-    <div class="tc-item">
-      <img src="assets/rev-lazar-serbia.jpg" alt="Lazar"/>
-      <div class="tc-text"><span class="tc-name">Lazar Dimitrijevic</span><span class="tc-quote">"I wake up with an energy I didn't know was possible."</span></div>
-    </div>
-    <div class="tc-item">
-      <img src="assets/rev-sam-slovakia.jpg" alt="Sam"/>
-      <div class="tc-text"><span class="tc-name">Sam Ferenc</span><span class="tc-quote">"Words can't describe the clarity I feel. Book the call."</span></div>
-    </div>
-    <div class="tc-item">
-      <img src="assets/member-miro-finland.png" alt="Miro"/>
-      <div class="tc-text"><span class="tc-name">Miro Lipsanen</span><span class="tc-quote">"The ROI was insane. Life-changing doesn't cover it."</span></div>
-    </div>
-    <div class="tc-item">
-      <img src="assets/member-justin-japan.png" alt="Justin"/>
-      <div class="tc-text"><span class="tc-name">Justin Bingham</span><span class="tc-quote">"Completely changed the way I view myself and my life."</span></div>
-    </div>
-    <div class="tc-item">
-      <img src="assets/rev-laryssa-usa.jpg" alt="Laryssa"/>
-      <div class="tc-text"><span class="tc-name">Laryssa Romero</span><span class="tc-quote">"A place where healing, growth and purpose come alive."</span></div>
-    </div>
-    <div class="tc-item">
-      <img src="assets/rev-nemanja-serbia.jpg" alt="Nemanja"/>
-      <div class="tc-text"><span class="tc-name">Nemanja</span><span class="tc-quote">"I am grateful to be able to call you my friend."</span></div>
-    </div>
-    <!-- duplicate set for seamless loop -->
-    <div class="tc-item">
-      <img src="assets/rev-isaac.jpg" alt="Isaac"/>
-      <div class="tc-text"><span class="tc-name">Isaac Chamberlain</span><span class="tc-quote">"Genuinely Christ-centred — not just in words, but in how people show up."</span></div>
-    </div>
-    <div class="tc-item">
-      <img src="assets/rev-tomas-macedonia.jpg" alt="Tomas"/>
-      <div class="tc-text"><span class="tc-name">Tomas Gjorgjievski</span><span class="tc-quote">"I laid in bed and cried — then felt a calmness I hadn't felt in ages."</span></div>
-    </div>
-    <div class="tc-item">
-      <img src="assets/rev-jakub-czech.jpg" alt="Jakub"/>
-      <div class="tc-text"><span class="tc-name">Jakub Kucera</span><span class="tc-quote">"One of the most transformative things I've invested in."</span></div>
-    </div>
-    <div class="tc-item">
-      <img src="assets/rev-lazar-serbia.jpg" alt="Lazar"/>
-      <div class="tc-text"><span class="tc-name">Lazar Dimitrijevic</span><span class="tc-quote">"I wake up with an energy I didn't know was possible."</span></div>
-    </div>
-    <div class="tc-item">
-      <img src="assets/rev-sam-slovakia.jpg" alt="Sam"/>
-      <div class="tc-text"><span class="tc-name">Sam Ferenc</span><span class="tc-quote">"Words can't describe the clarity I feel. Book the call."</span></div>
-    </div>
-    <div class="tc-item">
-      <img src="assets/member-miro-finland.png" alt="Miro"/>
-      <div class="tc-text"><span class="tc-name">Miro Lipsanen</span><span class="tc-quote">"The ROI was insane. Life-changing doesn't cover it."</span></div>
-    </div>
-    <div class="tc-item">
-      <img src="assets/member-justin-japan.png" alt="Justin"/>
-      <div class="tc-text"><span class="tc-name">Justin Bingham</span><span class="tc-quote">"Completely changed the way I view myself and my life."</span></div>
-    </div>
-    <div class="tc-item">
-      <img src="assets/rev-laryssa-usa.jpg" alt="Laryssa"/>
-      <div class="tc-text"><span class="tc-name">Laryssa Romero</span><span class="tc-quote">"A place where healing, growth and purpose come alive."</span></div>
-    </div>
-    <div class="tc-item">
-      <img src="assets/rev-nemanja-serbia.jpg" alt="Nemanja"/>
-      <div class="tc-text"><span class="tc-name">Nemanja</span><span class="tc-quote">"I am grateful to be able to call you my friend."</span></div>
+<!-- ═══════════════════ NON PROFIT ═══════════════════ -->
+<div class="np-banner">
+  <div class="np-inner reveal">
+    <img src="assets/wins/non-profit.png" alt="Plum Orphanage Da Nang Vietnam" class="np-img"/>
+    <div class="np-text">
+      <span class="np-tag">Soul Ark &middot; Giving Back</span>
+      <p class="np-headline">10% of all Soul Ark proceeds go directly to<br><strong style="color:var(--gold);">the Plum Orphanage, Da Nang, Vietnam.</strong></p>
+      <p class="np-body">Brotherhood is not only about the men inside these walls. It extends outward. Every membership you hold funds something bigger than any of us.</p>
     </div>
   </div>
 </div>
 
-<!-- FINANCE WINS CAROUSEL -->
-<div class="fcarousel-wrap">
-  <div class="fcarousel-label">Finance Wins From The Brotherhood</div>
-  <div class="fcarousel-track">
-    <div class="fc-item"><img src="assets/community/finance-01.jpg" alt="Finance win"/></div>
-    <div class="fc-item"><img src="assets/community/finance-03.jpg" alt="Finance win"/></div>
-    <div class="fc-item"><img src="assets/community/finance-05.jpg" alt="Finance win"/></div>
-    <div class="fc-item"><img src="assets/community/finance-07.jpg" alt="Finance win"/></div>
-    <div class="fc-item"><img src="assets/community/finance-09.jpg" alt="Finance win"/></div>
-    <div class="fc-item"><img src="assets/community/finance-10.jpg" alt="Finance win"/></div>
-    <div class="fc-item"><img src="assets/community/finance-11.jpg" alt="Finance win"/></div>
-    <div class="fc-item"><img src="assets/community/finance-01.jpg" alt="Finance win"/></div>
-    <div class="fc-item"><img src="assets/community/finance-03.jpg" alt="Finance win"/></div>
-    <div class="fc-item"><img src="assets/community/finance-05.jpg" alt="Finance win"/></div>
-    <div class="fc-item"><img src="assets/community/finance-07.jpg" alt="Finance win"/></div>
-    <div class="fc-item"><img src="assets/community/finance-09.jpg" alt="Finance win"/></div>
-    <div class="fc-item"><img src="assets/community/finance-10.jpg" alt="Finance win"/></div>
-    <div class="fc-item"><img src="assets/community/finance-11.jpg" alt="Finance win"/></div>
+<!-- ═══════════════════ WINS / PROOF ═══════════════════ -->
+<section class="wins-section">
+  <div class="wins-header">
+    <span class="sec-tag reveal">Real Results. Real Men.</span>
+    <h2 class="wins-headline reveal d1">What the brotherhood<br><span>actually does.</span></h2>
   </div>
-</div>
 
-<!-- PROOF BAR -->
-<div class="proof-bar">
-  <div class="pb-stat"><span class="pb-num">200+</span><span class="pb-lbl">Men Coached</span></div>
-  <div class="pb-sep"></div>
-  <div class="pb-stat"><span class="pb-num">9+</span><span class="pb-lbl">Countries</span></div>
-  <div class="pb-sep"></div>
-  <div class="pb-stat"><span class="pb-num">5.0 ★</span><span class="pb-lbl">Member Rating</span></div>
-  <div class="pb-sep"></div>
-  <div class="pb-stat"><span class="pb-num">ICF / EMCC</span><span class="pb-lbl">Certified</span></div>
-</div>
+  <div class="wins-rows">
 
-<!-- ═══════════════════════════════════════════ -->
-<!-- PROBLEM AGITATION                           -->
-<!-- ═══════════════════════════════════════════ -->
-<section class="sec sec-dark sec-glow">
-  <div class="sec-inner">
-    <span class="sec-tag reveal">Read this carefully</span>
-    <h2 class="sec-headline reveal d1">You don't lack<br>potential.<br><span class="gold">You lack brothers.</span></h2>
-    <div class="gold-rule reveal d2"></div>
-
-    <p class="sec-sub reveal d2">You already know what needs to change. The problem was never information.</p>
-
-    <div class="ag-list" style="margin-top:36px;">
-      <div class="ag-item reveal d1">
-        <div class="ag-dot"></div>
-        <p class="ag-text">You've read the books. Listened to the podcasts. You know what discipline looks like, what faith should look like, what your life <em>could</em> look like. <strong>The problem is you're trying to build something real in an environment built for average.</strong></p>
-      </div>
-      <div class="ag-item reveal d2">
-        <div class="ag-dot"></div>
-        <p class="ag-text">Look around. Who is actually calling you higher? Who pushes back when you're drifting? Who tells you the truth without agenda? <strong>You have plenty of acquaintances. But very few brothers.</strong></p>
-      </div>
-      <div class="ag-item reveal d3">
-        <div class="ag-dot"></div>
-        <p class="ag-text">Nobody is in the trenches beside you. Nobody is watching your back. You process the hard stuff alone, carry the weight alone, fight the battles alone. <strong>And you're tired of it — even if you've never said that out loud.</strong></p>
-      </div>
-      <div class="ag-item reveal d4">
-        <div class="ag-dot"></div>
-        <p class="ag-text">So you keep going. Because that's what you do. But there's a ceiling you can feel and can't seem to break through. And deep down, you already know why.</p>
-      </div>
+    <!-- ROW 1 — scrolls left -->
+    <div class="wins-row row-left">
+      <div class="win-card"><img src="assets/wins/IMG_9895.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9898.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9899.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9900.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9902.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9904.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9905.jpg" alt="Win"/></div>
+      <!-- duplicate -->
+      <div class="win-card"><img src="assets/wins/IMG_9895.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9898.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9899.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9900.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9902.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9904.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9905.jpg" alt="Win"/></div>
     </div>
 
-    <div class="pullquote reveal">
-      <p>"You're not broken. You're isolated. And isolation is the most effective weapon against a man who is trying to become something."</p>
+    <!-- ROW 2 — scrolls right -->
+    <div class="wins-row row-right">
+      <div class="win-card"><img src="assets/wins/IMG_9906.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9908.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9909.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9910.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-01.jpg" alt="Finance Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-03.jpg" alt="Finance Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-05.jpg" alt="Finance Win"/></div>
+      <!-- duplicate -->
+      <div class="win-card"><img src="assets/wins/IMG_9906.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9908.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9909.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9910.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-01.jpg" alt="Finance Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-03.jpg" alt="Finance Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-05.jpg" alt="Finance Win"/></div>
     </div>
+
+    <!-- ROW 3 — scrolls left -->
+    <div class="wins-row row-left2">
+      <div class="win-card"><img src="assets/wins/IMG_6173.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_7119.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_7148.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_7280.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_7333.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-07.jpg" alt="Finance Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-09.jpg" alt="Finance Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-10.jpg" alt="Finance Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-11.jpg" alt="Finance Win"/></div>
+      <!-- duplicate -->
+      <div class="win-card"><img src="assets/wins/IMG_6173.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_7119.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_7148.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_7280.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_7333.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-07.jpg" alt="Finance Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-09.jpg" alt="Finance Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-10.jpg" alt="Finance Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-11.jpg" alt="Finance Win"/></div>
+    </div>
+
   </div>
-</section>
 
-<!-- ═══════════════════════════════════════════ -->
-<!-- COST OF STAYING THE SAME                    -->
-<!-- ═══════════════════════════════════════════ -->
-<section class="sec sec-dark2">
-  <div class="sec-inner">
-    <span class="sec-tag reveal">The question worth asking</span>
-    <h2 class="sec-headline reveal d1">Where were you<br>a year ago?<br><span class="gold">And if nothing changes today,<br>where will you be next year?</span></h2>
-    <div class="gold-rule reveal d2"></div>
-
-    <p class="sec-sub reveal d2">Not to make you feel bad. To make you honest.</p>
-
-    <div class="ag-list" style="margin-top:32px;">
-      <div class="ag-item reveal d1">
-        <div class="ag-dot"></div>
-        <p class="ag-text">Are you still fighting the same battles — discipline, consistency, direction, that low-level frustration you can't quite name? Or have they actually shifted?</p>
-      </div>
-      <div class="ag-item reveal d2">
-        <div class="ag-dot"></div>
-        <p class="ag-text">Are you still processing everything alone? Still performing fine on the outside while carrying something heavier underneath? Still waiting for the right moment to actually make the move?</p>
-      </div>
-      <div class="ag-item reveal d3">
-        <div class="ag-dot"></div>
-        <p class="ag-text">The years do not wait. The version of you that God built you to become is not getting closer on its own. <strong>And the longer a man waits to change his environment, the more his old environment becomes his identity.</strong></p>
-      </div>
-    </div>
-
-    <div class="pullquote reveal">
-      <p>"A year from now you will wish you had started today."<br><br>That's not a motivational quote. That's just how time works."</p>
-    </div>
-
-    <p class="sec-sub reveal" style="margin-top:8px;">This page exists because Zak has spoken to hundreds of men who waited. Who said "not yet." Who came back a year later and said: I wish I hadn't waited.<br><br>
-    The call is free. The conversation is honest. The only thing it costs you is the decision to stop waiting.</p>
-
-    <div style="text-align:center;margin-top:44px;" class="reveal">
-      <a href="https://calendly.com/zakjtowlson-soulark/book-a-call" class="btn-primary">Book the Call &rarr;</a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════ -->
-<!-- BROTHERHOOD CHANGES EVERYTHING              -->
-<!-- ═══════════════════════════════════════════ -->
-<section class="sec sec-dark sec-glow">
-  <div class="sec-inner">
-    <span class="sec-tag reveal">What changes when you find your brothers</span>
-    <h2 class="sec-headline reveal d1">Nobody around you<br>is calling you higher.<br><span class="gold">That's the real problem.</span></h2>
-    <div class="gold-rule reveal d2"></div>
-
-    <p class="sec-sub reveal d2">You feel it even if you've never said it out loud.</p>
-
-    <div class="ag-list" style="margin-top:32px;">
-      <div class="ag-item reveal d1">
-        <div class="ag-dot"></div>
-        <p class="ag-text">The men around you are fine. Decent people. But they're not building at your level. They're not asking the questions you're asking. They're not being honest about what they're actually carrying. <strong>So you keep the deeper parts of yourself quiet.</strong></p>
-      </div>
-      <div class="ag-item reveal d2">
-        <div class="ag-dot"></div>
-        <p class="ag-text">You show people the surface. You handle what needs handling. You look like you have it together. And you carry the rest alone. <strong>Nobody is challenging you. Nobody is watching. Nobody is calling you to anything higher than where you already are.</strong></p>
-      </div>
-      <div class="ag-item reveal d3">
-        <div class="ag-dot"></div>
-        <p class="ag-text">Real brotherhood changes that. Not group chats. Not accountability partners who check in once a week. Not followers who comment on your posts. <strong>Brothers. Men who will call you out when you're lying to yourself.</strong> Men who raise your standard just by being in the room with you.</p>
-      </div>
-      <div class="ag-item reveal d4">
-        <div class="ag-dot"></div>
-        <p class="ag-text">When you find those men — when you are that man to each other — something shifts. You stop asking "is this even possible for me?" and start asking "how fast?" <strong>The ceiling you've been hitting quietly begins to move.</strong></p>
-      </div>
-    </div>
-
-    <div style="margin-top:52px;border-top:1px solid rgba(183,151,67,.15);padding-top:44px;">
-      <span class="sec-tag reveal" style="margin-bottom:24px;">The before and after</span>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;" class="reveal d1">
-        <div style="padding:32px 28px;background:rgba(255,255,255,.02);border:1px solid rgba(139,139,160,.1);">
-          <p style="font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.35em;text-transform:uppercase;color:var(--muted-dark);margin-bottom:18px;">Before</p>
-          <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;">
-            <li style="font-size:.86rem;color:var(--muted-dark);line-height:1.65;">Starting strong, fading off, wondering why</li>
-            <li style="font-size:.86rem;color:var(--muted-dark);line-height:1.65;">Carrying things you never say out loud</li>
-            <li style="font-size:.86rem;color:var(--muted-dark);line-height:1.65;">Knowing what to do and not doing it</li>
-            <li style="font-size:.86rem;color:var(--muted-dark);line-height:1.65;">Looking fine. Feeling stuck.</li>
-            <li style="font-size:.86rem;color:var(--muted-dark);line-height:1.65;">No one close enough to tell you the truth</li>
-            <li style="font-size:.86rem;color:var(--muted-dark);line-height:1.65;">The same questions. Every year.</li>
-          </ul>
-        </div>
-        <div style="padding:32px 28px;background:rgba(183,151,67,.04);border:1px solid rgba(183,151,67,.2);">
-          <p style="font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;">After</p>
-          <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;">
-            <li style="font-size:.86rem;color:var(--light);line-height:1.65;">Consistent. Not perfect — but consistent.</li>
-            <li style="font-size:.86rem;color:var(--light);line-height:1.65;">Brothers who know the real version of you</li>
-            <li style="font-size:.86rem;color:var(--light);line-height:1.65;">Acting on what you already know</li>
-            <li style="font-size:.86rem;color:var(--light);line-height:1.65;">Clarity about who you are and where you're going</li>
-            <li style="font-size:.86rem;color:var(--light);line-height:1.65;">Men who will be honest with you — and love you for it</li>
-            <li style="font-size:.86rem;color:var(--light);line-height:1.65;">A different man asking different questions.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="pullquote reveal" style="margin-top:44px;">
-      <p>"After our first conversation I laid in bed and cried — before feeling a calmness and falling asleep worry-free for the first time in ages. I didn't know I was carrying that much."</p>
-      <cite style="display:flex;align-items:center;gap:12px;margin-top:16px;">
-        <img src="assets/rev-tomas-macedonia.jpg" alt="Tomas Gjorgjievski" style="width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:top;flex-shrink:0;border:2px solid var(--gold);"/>
-        <span>Tomas Gjorgjievski &mdash; Marketer</span>
-      </cite>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════ -->
-<!-- WHAT IS SOUL ARK                            -->
-<!-- ═══════════════════════════════════════════ -->
-<section class="sec sec-dark2" id="what-is">
-  <div class="sec-inner">
-    <span class="sec-tag reveal">What Soul Ark actually is</span>
-    <h2 class="sec-headline reveal d1">Not a community.<br><span class="gold">The answer<br>to isolation.</span></h2>
-    <div class="gold-rule reveal d2"></div>
-
-    <p class="sec-sub reveal d2">Soul Ark is a private Christian brotherhood for ambitious men who are done doing it alone.</p>
-    <p class="sec-sub reveal d3" style="margin-top:16px;">Not a forum. Not a course library. Not another group where people post but nobody's actually present. A living, active brotherhood of vetted men across 9+ countries — who show up daily to build their faith, their character, their finances, and their futures. Together.</p>
-    <p class="sec-sub reveal d3" style="margin-top:16px;">Every man who enters Soul Ark is reviewed personally. Because this is not built for everyone. It is built for the right men.</p>
-
-    <ul class="feature-list reveal d3" style="margin-top:40px;">
-      <li><span class="tick">✦</span>Men who will call you out before you call yourself out</li>
-      <li><span class="tick">✦</span>Weekly calls with Zak — not content, real conversation</li>
-      <li><span class="tick">✦</span>Accountability that doesn't let you quietly disappear</li>
-      <li><span class="tick">✦</span>Coaching material built around real struggles — faith, money, identity, purpose, relationships</li>
-      <li><span class="tick">✦</span>Monthly workshops and deep-dive sessions</li>
-      <li><span class="tick">✦</span>Brothers in 9+ countries building the same thing you are</li>
-    </ul>
-
-    <div class="price-callout reveal d4">
-      <h4>Soul Ark Membership</h4>
-      <div><span class="price">£47</span><span class="price-per">/ month &middot; cancel anytime</span></div>
-      <p>The brotherhood costs £47 a month. The cost of continuing to do it alone is the rest of your potential.</p>
-      <a href="https://calendly.com/zakjtowlson-soulark/book-a-call" class="btn-primary" style="display:block;text-align:center;margin-top:22px;">Apply to Join &rarr;</a>
-    </div>
-
-    <div class="mentorship-block reveal d4">
-      <div class="mentorship-badge">6–12 Weeks &middot; From £750</div>
-      <h3>Go Deeper.</h3>
-      <span class="subtitle">1:1 Life Coaching &middot; Finance Mentoring &middot; Business Coaching</span>
-      <p>You don't need another course. You need someone who can help you finally act on what you already know.</p>
-      <p>I am not a guru. I have lived what you are struggling with. I will tell you the truth about where you are — your blind spots, your patterns, the decisions you keep avoiding — and I will sit beside you while you do something about it.</p>
-      <p>ICF &amp; EMCC certified. 6 or 12-week plans, built entirely around your specific situation. Only for men who are serious about complete transformation.</p>
-      <ul class="feature-list" style="margin-top:16px;margin-bottom:24px;">
-        <li><span class="tick">✦</span>Weekly 90-minute calls — no agenda except your life</li>
-        <li><span class="tick">✦</span>A private plan built around your exact situation, goals and struggles</li>
-        <li><span class="tick">✦</span>Direct access to Zak between sessions</li>
-        <li><span class="tick">✦</span>Honest confrontation of the blind spots holding you back</li>
-        <li><span class="tick">✦</span>Clarity on identity, purpose, faith, finances and direction</li>
-        <li><span class="tick">✦</span>Exclusive access to retreats, events and all future Soul Ark events</li>
-        <li><span class="tick">✦</span>Lifetime Soul Ark brotherhood access</li>
-      </ul>
-      <a href="https://calendly.com/zakjtowlson-soulark/book-a-call" class="btn-primary" style="display:block;text-align:center;">Book a Free Discovery Call &rarr;</a>
-    </div>
-
-    <div style="text-align:center;margin-top:52px;" class="reveal">
-      <a href="https://calendly.com/zakjtowlson-soulark/book-a-call" class="btn-primary">Apply for Soul Ark &rarr;</a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════ -->
-<!-- FOR / NOT FOR                               -->
-<!-- ═══════════════════════════════════════════ -->
-<section id="for-you" style="padding:0;position:relative;overflow:hidden;">
-  <div class="fit-grid">
-    <div class="fit-col yes">
-      <span class="fit-col-tag reveal">This is for you if...</span>
-      <h3 class="reveal d1">The right man<br>recognises this<br>immediately.</h3>
-      <div class="gold-rule reveal d2"></div>
-      <ul class="fit-list reveal d2">
-        <li><span class="fit-icon-yes">✦</span>You know you're capable of more — and the gap between that and your current reality bothers you every single day</li>
-        <li><span class="fit-icon-yes">✦</span>You're tired of fighting battles that never seem to fully end</li>
-        <li><span class="fit-icon-yes">✦</span>You have faith but no one around you is walking with you in it</li>
-        <li><span class="fit-icon-yes">✦</span>You're carrying everyone around you but nobody is carrying you</li>
-        <li><span class="fit-icon-yes">✦</span>You want to be held accountable but have no one honest enough to do it</li>
-        <li><span class="fit-icon-yes">✦</span>You want to build something that matters — and you want brothers to build it with</li>
-        <li><span class="fit-icon-yes">✦</span>You are serious enough to invest in becoming who God built you to be</li>
-      </ul>
-    </div>
-    <div class="fit-col no">
-      <span class="fit-col-tag sec-tag-muted reveal">This is NOT for you if...</span>
-      <h3 class="reveal d1" style="color:var(--muted-dark);">Some men aren't<br>ready. That's<br>okay.</h3>
-      <div class="gold-rule reveal d2" style="background:rgba(139,139,160,.25);"></div>
-      <ul class="fit-list reveal d2">
-        <li><span class="fit-icon-no">✕</span>You want to consume content without actually changing anything</li>
-        <li><span class="fit-icon-no">✕</span>You want to be understood but not challenged</li>
-        <li><span class="fit-icon-no">✕</span>You need someone to agree with your excuses rather than dismantle them</li>
-        <li><span class="fit-icon-no">✕</span>Your faith is a Sunday morning routine and has no authority over the rest of your week</li>
-        <li><span class="fit-icon-no">✕</span>You're not willing to be completely honest about where you actually are</li>
-        <li><span class="fit-icon-no">✕</span>You're just curious. Not ready.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════ -->
-<!-- SOCIAL PROOF                                -->
-<!-- ═══════════════════════════════════════════ -->
-<section class="sec sec-dark sec-glow">
-  <div class="sec-inner-wide">
-    <div class="sec-center">
-      <span class="sec-tag reveal">What men say after finding their brothers</span>
-      <h2 class="sec-headline reveal d1">They joined with<br>questions. They found<span class="gold"> direction.</span></h2>
-      <div class="gold-rule gold-rule-center reveal d2"></div>
-    </div>
-
-    <div class="featured-review reveal d2" style="margin-top:48px;">
-      <div class="featured-review-img">
-        <span class="fr-badge">British Pro Boxer</span>
-        <img src="assets/rev-isaac.jpg" alt="Isaac Chamberlain" loading="lazy"/>
-      </div>
-      <div class="featured-review-body">
-        <div class="fr-stars">★★★★★</div>
-        <p class="fr-quote">"It's genuinely <span class="gold">Christ-centred</span> — not just in words, but in how people show up. Men from all over the world, completely different walks of life, coming together to learn, grow, and be real with each other."</p>
-        <div class="fr-name">Isaac Chamberlain</div>
-        <div class="fr-role">British Professional Boxer</div>
-      </div>
-    </div>
-
-    <div class="review-grid">
-      <div class="review-card reveal d1">
-        <div class="review-card-top">
-          <img class="review-avatar" src="assets/rev-jakub-czech.jpg" alt="Jakub"/>
-          <div><div class="review-name">Jakub Kucera</div><div class="review-sub">Founder, MigmaLabs</div></div>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Soul Ark had a genuine impact on my personal life and my business. Zak's programme is one of the most transformative things I've invested in. The growth speaks for itself."</p>
-      </div>
-      <div class="review-card reveal d3">
-        <div class="review-card-top">
-          <img class="review-avatar" src="assets/rev-lazar-serbia.jpg" alt="Lazar"/>
-          <div><div class="review-name">Lazar Dimitrijevic</div><div class="review-sub">Content Creator</div></div>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"I feel more grounded than I ever have. My business has focus and direction. And I wake up with an energy I didn't know was possible."</p>
-      </div>
-      <div class="review-card reveal d1">
-        <div class="review-card-top">
-          <img class="review-avatar" src="assets/rev-sam-slovakia.jpg" alt="Sam"/>
-          <div><div class="review-name">Sam Ferenc</div><div class="review-sub">Fitness Coach</div></div>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"I've never been on a coaching call in my life and words can't describe the clarity I feel. If you want to save yourself months of hardship — get in and book that call. You won't regret it."</p>
-      </div>
-      <div class="review-card reveal d2">
-        <div class="review-card-top">
-          <div class="review-avatar" style="background:#5b6bbf;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:Lato,sans-serif;">BB</div>
-          <div><div class="review-name">Brandon Berry</div><div class="review-sub">Soul Ark Member</div></div>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"I was able to search deep within myself — to know who I am, what I stand for, and what's been stopping me. I know what I must do now. I just needed someone to help me see it."</p>
-      </div>
-      <div class="review-card reveal d3">
-        <div class="review-card-top">
-          <img class="review-avatar" src="assets/rev-laryssa-usa.jpg" alt="Laryssa"/>
-          <div><div class="review-name">Laryssa Romero</div><div class="review-sub">Nursery Teacher</div></div>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Soul Ark is not just a group. It's a place where healing, growth and purpose come alive. I didn't expect to find something this real online."</p>
-      </div>
-      <div class="review-card reveal d1">
-        <div class="review-card-top">
-          <img class="review-avatar" src="assets/member-miro-finland.png" alt="Miro" style="object-position:top;"/>
-          <div><div class="review-name">Miro Lipsanen</div><div class="review-sub">Soul Ark Member &middot; Finland</div></div>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"We had a 90-minute coaching call and for me it was something I feel was really life-changing. Only time will show the real fruits of this. From now I can say from the bottom of my heart that the ROI was insane."</p>
-      </div>
-      <div class="review-card reveal d2">
-        <div class="review-card-top">
-          <img class="review-avatar" src="assets/member-justin-japan.png" alt="Justin" style="object-position:top;"/>
-          <div><div class="review-name">Justin Bingham</div><div class="review-sub">English Teacher &amp; Poet</div></div>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Zak has completely changed the way I view myself and my life, and I couldn't be more grateful. Soul Ark has had a profound impact on me. If you're considering joining, make the investment — you won't regret it."</p>
-      </div>
-      <div class="review-card reveal d3">
-        <div class="review-card-top">
-          <img class="review-avatar" src="assets/rev-nemanja-serbia.jpg" alt="Nemanja" style="object-position:top;"/>
-          <div><div class="review-name">Nemanja</div><div class="review-sub">Soul Ark Member &middot; Serbia</div></div>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"I am grateful to be able to call you my friend."</p>
-      </div>
-    </div>
-
-    <div style="text-align:center;margin-top:54px;" class="reveal">
-      <a href="https://calendly.com/zakjtowlson-soulark/book-a-call" class="btn-primary">Apply for Soul Ark &rarr;</a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════ -->
-<!-- MANIFESTO BANNER                            -->
-<!-- ═══════════════════════════════════════════ -->
-<div class="manifesto-banner">
-  <p class="manifesto-text reveal">
-    Most men spend their whole lives<br>
-    <em>performing</em> instead of <em>becoming.</em><br><br>
-    Performing strength. Performing progress.<br>
-    Performing like they have it together.<br><br>
-    Soul Ark exists for the men<br>
-    who are done with the performance.
-  </p>
-</div>
-
-<!-- ═══════════════════════════════════════════ -->
-<!-- FUTURE VISION                               -->
-<!-- ═══════════════════════════════════════════ -->
-<section class="sec sec-dark2">
-  <div class="sec-inner">
-    <span class="sec-tag reveal">Why this exists</span>
-    <h2 class="sec-headline reveal d1">Men have never been<br>more connected.<br><span class="gold">And never more<br>alone.</span></h2>
-    <div class="gold-rule reveal d2"></div>
-
-    <p class="sec-sub reveal d2" style="margin-top:8px;">That is not an accident. It is the environment. And Soul Ark is a direct response to it.</p>
-
-    <div class="vision-blocks">
-      <div class="vision-block reveal d1">
-        <div class="vision-num">01</div>
-        <div class="vision-title">The Problem Is Structural</div>
-        <p class="vision-body">Men today have more access to information, connection and opportunity than any generation before them — and yet the rates of isolation, purposelessness and quiet desperation among men are at an all-time high. The platforms aren't the problem. The absence of real brotherhood is.</p>
-      </div>
-      <div class="vision-block reveal d2">
-        <div class="vision-num">02</div>
-        <div class="vision-title">Faith Without Brothers Fades</div>
-        <p class="vision-body">A man's faith does not grow in isolation. His discipline does not hold in isolation. His identity does not sharpen in isolation. God designed men for brotherhood — not followers, not fans, not accountability partners. Brothers. Soul Ark exists to give that back to men who have lost it.</p>
-      </div>
-      <div class="vision-block reveal d3">
-        <div class="vision-num">03</div>
-        <div class="vision-title">What We Are Building</div>
-        <p class="vision-body">A generation of men who are known, challenged and accountable. Who lead their families with conviction. Who build with purpose. Who do not drift. The men in Soul Ark today are the proof of concept. What comes next depends on who joins them.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════ -->
-<!-- MEET ZAK                                    -->
-<!-- ═══════════════════════════════════════════ -->
-<section class="sec sec-dark sec-glow">
-  <div class="sec-inner">
-    <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:64px;align-items:center;">
-      <div class="reveal-l">
-        <img src="assets/zaks new profile pic.PNG" alt="Zak — Founder, Soul Ark" style="width:100%;display:block;border:2px solid var(--gold);" loading="lazy"/>
-      </div>
-      <div class="reveal-r">
-        <span class="sec-tag">The Founder</span>
-        <h2 style="font-family:'Cinzel Decorative',serif;font-weight:900;font-size:clamp(1.5rem,2.8vw,2.2rem);color:var(--white);line-height:1.15;margin-bottom:16px;">Zak &mdash; <span style="color:var(--gold);">The Viking Christian</span></h2>
-        <div class="gold-rule"></div>
-        <p style="font-size:.9rem;line-height:1.88;color:var(--muted-dark);font-weight:300;margin-bottom:16px;">Author, life coach, and founder of Soul Ark. I help men win in private, not just on paper.</p>
-        <p style="font-size:.9rem;line-height:1.88;color:var(--muted-dark);font-weight:300;margin-bottom:16px;">ICF &amp; EMCC certified. Over 200 men coached across 9+ countries. Orthodox Christian. I didn't build Soul Ark from theory — I built it from the same isolation, confusion and hunger that brought you to this page.</p>
-        <p style="font-size:.9rem;line-height:1.88;color:var(--muted-dark);font-weight:300;margin-bottom:28px;">I speak to every applicant personally before they enter Soul Ark. This is not a product. It is a brotherhood — and it starts with a real conversation.</p>
-        <a href="https://calendly.com/zakjtowlson-soulark/book-a-call" class="btn-ghost">Book a Call with Zak &rarr;</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════ -->
-<!-- APPLICATION PROCESS                         -->
-<!-- ═══════════════════════════════════════════ -->
-<section class="sec sec-dark2" id="apply">
-  <div class="sec-inner-wide">
-    <div class="sec-center">
-      <span class="sec-tag reveal">How to Apply</span>
-      <h2 class="sec-headline reveal d1">Three steps.<br>One <span class="gold">decision.</span></h2>
-      <div class="gold-rule gold-rule-center reveal d2"></div>
-      <p class="sec-sub reveal d3" style="max-width:520px;margin:0 auto;">This is not a checkout page. Every man who enters Soul Ark is reviewed personally by Zak first. That is not a formality. It is how this brotherhood maintains its standard.</p>
-    </div>
-
-    <div class="steps reveal d2" style="margin-top:52px;">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-title">Book the Call</div>
-        <p class="step-body">Choose a time below. Takes 60 seconds. This is a real conversation — not a webinar, not a sales funnel. A man talking to a man.</p>
-        <span class="step-connector">→</span>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-title">Speak with Zak</div>
-        <p class="step-body">20 minutes. Zak will understand where you are and where you're trying to go. He will be completely honest with you — about Soul Ark, and about what he actually thinks you need.</p>
-        <span class="step-connector">→</span>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-title">If It's a Fit — You're In</div>
-        <p class="step-body">Not everyone is accepted. Soul Ark is intentionally selective. We would rather have the right men than many men. If it's not the right time, Zak will tell you that too.</p>
-      </div>
-    </div>
-
-    <div style="text-align:center;margin-top:58px;" class="reveal">
-      <a href="https://calendly.com/zakjtowlson-soulark/book-a-call" class="btn-primary" style="font-size:.7rem;padding:18px 52px;">Apply for Soul Ark &rarr;</a>
-      <p class="qualifier" style="margin-top:16px;text-align:center;">Free 20-minute call &middot; No pressure &middot; Reviewed personally by Zak</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════ -->
-<!-- FAQ                                         -->
-<!-- ═══════════════════════════════════════════ -->
-<section class="sec sec-dark sec-glow">
-  <div class="sec-inner">
-    <span class="sec-tag reveal">Common Questions</span>
-    <h2 class="sec-headline reveal d1">If you're still<br>reading — you<br><span class="gold">probably have one<br>of these.</span></h2>
-    <div class="gold-rule reveal d2"></div>
-
-    <div class="faq-list reveal d2">
-      <details>
-        <summary class="faq-q">What is Soul Ark, in plain terms?</summary>
-        <p class="faq-a">A private online brotherhood for ambitious Christian men. Real community, real coaching, real accountability — at £47/month. Every member is reviewed before entry. You cannot just buy your way in without a conversation first.</p>
-      </details>
-      <details>
-        <summary class="faq-q">Is this just another online group?</summary>
-        <p class="faq-a">No. Most online groups are passive. People join, lurk, consume, and leave unchanged. Soul Ark is active. Men engage, get coached, hold each other accountable, and actually show up. The vetting process ensures that. If you're not here to build, you won't get in.</p>
-      </details>
-      <details>
-        <summary class="faq-q">What if I'm not sure it's the right fit?</summary>
-        <p class="faq-a">Book the call. Zak speaks to every applicant personally. There is no pressure. If Soul Ark is not right for you — or if the timing is wrong — he will tell you that honestly. The call itself is valuable regardless.</p>
-      </details>
-      <details>
-        <summary class="faq-q">Is there a commitment?</summary>
-        <p class="faq-a">You can cancel anytime. But the men who change are the ones who commit — because becoming the man God built you to be is not a one-month project. The brotherhood is permanent. Treat your decision that way.</p>
-      </details>
-      <details>
-        <summary class="faq-q">What does the membership actually include?</summary>
-        <p class="faq-a">A vetted private community, weekly group coaching calls with Zak, direct access to the Soul Ark coaching team, a full coaching library covering faith, identity, finances, relationships and purpose, monthly workshops, and accountability structures that hold you to your word. £47/month. Cancel anytime.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════ -->
-<!-- FINAL CTA                                   -->
-<!-- ═══════════════════════════════════════════ -->
-<section class="final-cta">
-  <div class="final-cta-inner">
-    <span class="sec-tag reveal" style="display:block;">The decision</span>
-
-    <h2 class="sec-headline reveal d1" style="font-size:clamp(1.9rem,4.5vw,3.6rem);">This is the part where<br>most men<br><span class="gold">close the tab.</span></h2>
-    <div class="gold-rule gold-rule-center reveal d2"></div>
-
-    <p class="sec-sub reveal d3" style="max-width:580px;margin:0 auto 20px;">They tell themselves they'll come back. That they need to think about it. That now isn't quite the right time.<br><br>
-    They won't come back. The timing never becomes right on its own. And another year passes exactly like the last one.</p>
-
-    <p class="sec-sub reveal d3" style="max-width:580px;margin:0 auto 44px;color:var(--light);">Or you book the call. You have one honest conversation. And something changes.<br><br>
-    A year from now, you could still be asking the same questions — still carrying the same things, still fighting the same battles.<br><br>
-    <strong style="color:var(--gold);font-weight:400;">Or you could be a different man asking different questions. The brothers you've been looking for are on the other side of this call.</strong></p>
-
-    <div class="reveal d3">
-      <a href="https://calendly.com/zakjtowlson-soulark/book-a-call" class="btn-primary" style="font-size:.72rem;padding:20px 56px;">Apply for Soul Ark &rarr;</a>
-      <p class="final-warning">Free 20-minute call &middot; No pressure</p>
-    </div>
+  <div style="text-align:center;margin-top:64px;padding:0 24px;">
+    <a href="https://www.instagram.com/thevikingchristian/" class="btn-main reveal" target="_blank" rel="noopener">DM &ldquo;Rebuild&rdquo; to Apply &rarr;</a>
+    <p class="cancel-note reveal d1" style="margin-top:16px;">£197/month &middot; Cancel anytime &middot; Application only</p>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-brand">
-    <img class="logo-img-sm" src="assets/logo-b6cfa02c.png" alt="Soul Ark"/>
-    <span class="footer-brand-text">The Viking Christian</span>
-  </div>
-  <div class="footer-copy">&copy; 2025 The Viking Christian &middot; Soul Ark</div>
+  <img src="assets/logo-b6cfa02c.png" alt="Soul Ark" class="footer-logo"/>
+  <p class="footer-copy">&copy; 2025 Soul Ark &middot; The Viking Christian &middot; <a href="https://www.instagram.com/thevikingchristian/" style="color:var(--gold);text-decoration:none;">@thevikingchristian</a></p>
 </footer>
 
 <script>
-  // LOADER
-  window.addEventListener("load", () => {
-    setTimeout(() => document.getElementById("loader").classList.add("hidden"), 1800);
-  });
-
-  // EMBERS
-  const emb = document.getElementById("embers");
-  for (let i = 0; i < 22; i++) {
-    const e = document.createElement("div");
-    e.className = "ember";
-    const sz = 1 + Math.random() * 2;
-    e.style.cssText = "left:"+Math.random()*100+"%;width:"+sz+"px;height:"+sz+"px;animation-delay:"+Math.random()*9+"s;animation-duration:"+(5+Math.random()*7)+"s;--drift:"+((Math.random()-.5)*60)+"px";
-    emb.appendChild(e);
-  }
-
   // SCROLL REVEAL
+  const els = document.querySelectorAll('.reveal');
   const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("v"); });
-  }, { threshold: 0.08 });
-  document.querySelectorAll(".reveal,.reveal-l,.reveal-r").forEach(el => obs.observe(el));
-
-  // NAV
-  const navEl = document.getElementById("mainNav");
-  function updateNav() {
-    navEl.classList.toggle("at-top", window.scrollY < 60);
-  }
-  updateNav();
-  window.addEventListener("scroll", updateNav);
-
-  // CROSS FADE
-  const fc = document.getElementById("fixed-cross");
-  window.addEventListener("scroll", () => {
-    const heroH = document.getElementById("hero").offsetHeight;
-    fc.style.opacity = window.scrollY > heroH * 0.75
-      ? Math.max(0.2, 1 - (window.scrollY - heroH * 0.75) / (heroH * 0.35))
-      : "1";
-  });
-
-  // HAMBURGER
-  const hbg = document.getElementById("hamburger");
-  const drawer = document.getElementById("navDrawer");
-  if (hbg && drawer) {
-    hbg.addEventListener("click", () => {
-      hbg.classList.toggle("open");
-      drawer.classList.toggle("open");
-    });
-    drawer.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
-      hbg.classList.remove("open");
-      drawer.classList.remove("open");
-    }));
-  }
+    entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  els.forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
