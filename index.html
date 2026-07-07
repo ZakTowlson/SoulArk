@@ -110,9 +110,14 @@
   /* MASONRY SCROLL ROWS */
   .wins-rows { display:flex; flex-direction:column; gap:12px; overflow:hidden; }
   .wins-row { display:flex; gap:12px; width:max-content; }
-  .wins-row.row-left { animation:scrollLeft 55s linear infinite; }
-  .wins-row.row-right { animation:scrollRight 50s linear infinite; }
-  .wins-row.row-left2 { animation:scrollLeft 60s linear infinite; }
+  .wins-row.r1 { animation:scrollLeft  50s linear infinite; }
+  .wins-row.r2 { animation:scrollRight 44s linear infinite; }
+  .wins-row.r3 { animation:scrollLeft  58s linear infinite; }
+  .wins-row.r4 { animation:scrollRight 48s linear infinite; }
+  .wins-row.r5 { animation:scrollLeft  54s linear infinite; }
+  .wins-row.r6 { animation:scrollRight 42s linear infinite; }
+  .wins-row.r7 { animation:scrollLeft  62s linear infinite; }
+  .wins-row.r8 { animation:scrollRight 46s linear infinite; }
   .wins-rows:hover .wins-row { animation-play-state:paused; }
   @keyframes scrollLeft  { 0%{transform:translateX(0)}   100%{transform:translateX(-50%)} }
   @keyframes scrollRight { 0%{transform:translateX(-50%)} 100%{transform:translateX(0)} }
@@ -220,65 +225,148 @@
 
   <div class="wins-rows">
 
-    <!-- ROW 1 — scrolls left -->
-    <div class="wins-row row-left">
+    <!-- ROW 1 -->
+    <div class="wins-row r1">
       <div class="win-card"><img src="assets/wins/IMG_9895.jpg" alt="Win"/></div>
       <div class="win-card"><img src="assets/wins/IMG_9898.jpg" alt="Win"/></div>
       <div class="win-card"><img src="assets/wins/IMG_9899.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-01.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_6173.jpg" alt="Win"/></div>
       <div class="win-card"><img src="assets/wins/IMG_9900.jpg" alt="Win"/></div>
-      <div class="win-card"><img src="assets/wins/IMG_9902.jpg" alt="Win"/></div>
-      <div class="win-card"><img src="assets/wins/IMG_9904.jpg" alt="Win"/></div>
-      <div class="win-card"><img src="assets/wins/IMG_9905.jpg" alt="Win"/></div>
-      <!-- duplicate -->
+      <div class="win-card"><img src="assets/wins/finance-03.jpg" alt="Win"/></div>
       <div class="win-card"><img src="assets/wins/IMG_9895.jpg" alt="Win"/></div>
       <div class="win-card"><img src="assets/wins/IMG_9898.jpg" alt="Win"/></div>
       <div class="win-card"><img src="assets/wins/IMG_9899.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-01.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_6173.jpg" alt="Win"/></div>
       <div class="win-card"><img src="assets/wins/IMG_9900.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-03.jpg" alt="Win"/></div>
+    </div>
+
+    <!-- ROW 2 -->
+    <div class="wins-row r2">
       <div class="win-card"><img src="assets/wins/IMG_9902.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_7119.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-05.jpg" alt="Win"/></div>
       <div class="win-card"><img src="assets/wins/IMG_9904.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_8285.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-07.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9905.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9902.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_7119.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-05.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9904.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_8285.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-07.jpg" alt="Win"/></div>
       <div class="win-card"><img src="assets/wins/IMG_9905.jpg" alt="Win"/></div>
     </div>
 
-    <!-- ROW 2 — scrolls right -->
-    <div class="wins-row row-right">
+    <!-- ROW 3 -->
+    <div class="wins-row r3">
       <div class="win-card"><img src="assets/wins/IMG_9906.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_7148.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-09.jpg" alt="Win"/></div>
       <div class="win-card"><img src="assets/wins/IMG_9908.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_7280.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-10.jpg" alt="Win"/></div>
       <div class="win-card"><img src="assets/wins/IMG_9909.jpg" alt="Win"/></div>
-      <div class="win-card"><img src="assets/wins/IMG_9910.jpg" alt="Win"/></div>
-      <div class="win-card"><img src="assets/wins/finance-01.jpg" alt="Finance Win"/></div>
-      <div class="win-card"><img src="assets/wins/finance-03.jpg" alt="Finance Win"/></div>
-      <div class="win-card"><img src="assets/wins/finance-05.jpg" alt="Finance Win"/></div>
-      <!-- duplicate -->
       <div class="win-card"><img src="assets/wins/IMG_9906.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_7148.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-09.jpg" alt="Win"/></div>
       <div class="win-card"><img src="assets/wins/IMG_9908.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_7280.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-10.jpg" alt="Win"/></div>
       <div class="win-card"><img src="assets/wins/IMG_9909.jpg" alt="Win"/></div>
-      <div class="win-card"><img src="assets/wins/IMG_9910.jpg" alt="Win"/></div>
-      <div class="win-card"><img src="assets/wins/finance-01.jpg" alt="Finance Win"/></div>
-      <div class="win-card"><img src="assets/wins/finance-03.jpg" alt="Finance Win"/></div>
-      <div class="win-card"><img src="assets/wins/finance-05.jpg" alt="Finance Win"/></div>
     </div>
 
-    <!-- ROW 3 — scrolls left -->
-    <div class="wins-row row-left2">
-      <div class="win-card"><img src="assets/wins/IMG_6173.jpg" alt="Win"/></div>
-      <div class="win-card"><img src="assets/wins/IMG_7119.jpg" alt="Win"/></div>
-      <div class="win-card"><img src="assets/wins/IMG_7148.jpg" alt="Win"/></div>
-      <div class="win-card"><img src="assets/wins/IMG_7280.jpg" alt="Win"/></div>
+    <!-- ROW 4 -->
+    <div class="wins-row r4">
+      <div class="win-card"><img src="assets/wins/IMG_9910.jpg" alt="Win"/></div>
       <div class="win-card"><img src="assets/wins/IMG_7333.jpg" alt="Win"/></div>
-      <div class="win-card"><img src="assets/wins/finance-07.jpg" alt="Finance Win"/></div>
-      <div class="win-card"><img src="assets/wins/finance-09.jpg" alt="Finance Win"/></div>
-      <div class="win-card"><img src="assets/wins/finance-10.jpg" alt="Finance Win"/></div>
-      <div class="win-card"><img src="assets/wins/finance-11.jpg" alt="Finance Win"/></div>
-      <!-- duplicate -->
-      <div class="win-card"><img src="assets/wins/IMG_6173.jpg" alt="Win"/></div>
-      <div class="win-card"><img src="assets/wins/IMG_7119.jpg" alt="Win"/></div>
-      <div class="win-card"><img src="assets/wins/IMG_7148.jpg" alt="Win"/></div>
-      <div class="win-card"><img src="assets/wins/IMG_7280.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-11.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9911.PNG" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_7888.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9895.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-01.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9910.jpg" alt="Win"/></div>
       <div class="win-card"><img src="assets/wins/IMG_7333.jpg" alt="Win"/></div>
-      <div class="win-card"><img src="assets/wins/finance-07.jpg" alt="Finance Win"/></div>
-      <div class="win-card"><img src="assets/wins/finance-09.jpg" alt="Finance Win"/></div>
-      <div class="win-card"><img src="assets/wins/finance-10.jpg" alt="Finance Win"/></div>
-      <div class="win-card"><img src="assets/wins/finance-11.jpg" alt="Finance Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-11.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9911.PNG" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_7888.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9895.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-01.jpg" alt="Win"/></div>
+    </div>
+
+    <!-- ROW 5 -->
+    <div class="wins-row r5">
+      <div class="win-card"><img src="assets/wins/IMG_8711.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9898.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-03.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9876.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9902.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-05.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_6173.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_8711.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9898.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-03.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9876.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9902.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-05.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_6173.jpg" alt="Win"/></div>
+    </div>
+
+    <!-- ROW 6 -->
+    <div class="wins-row r6">
+      <div class="win-card"><img src="assets/wins/IMG_9904.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_7119.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-07.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9906.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_8285.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-09.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9905.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9904.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_7119.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-07.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9906.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_8285.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-09.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9905.jpg" alt="Win"/></div>
+    </div>
+
+    <!-- ROW 7 -->
+    <div class="wins-row r7">
+      <div class="win-card"><img src="assets/wins/IMG_9908.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_7148.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-10.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9910.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_7280.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9911.PNG" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-11.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9908.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_7148.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-10.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9910.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_7280.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9911.PNG" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-11.jpg" alt="Win"/></div>
+    </div>
+
+    <!-- ROW 8 -->
+    <div class="wins-row r8">
+      <div class="win-card"><img src="assets/wins/IMG_7333.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9909.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-01.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_7888.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_8711.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-03.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9876.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_7333.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9909.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-01.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_7888.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_8711.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/finance-03.jpg" alt="Win"/></div>
+      <div class="win-card"><img src="assets/wins/IMG_9876.jpg" alt="Win"/></div>
     </div>
 
   </div>
