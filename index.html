@@ -120,6 +120,8 @@
   .tomas-quotes blockquote strong { color:var(--gold); font-weight:700; }
   .tomas-video { position:relative; padding-bottom:56.25%; height:0; border-radius:12px; overflow:hidden; border:1px solid rgba(183,151,67,.2); margin-bottom:40px; }
   .tomas-video iframe { position:absolute; top:0; left:0; width:100%; height:100%; }
+  .video-fallback { display:block; margin-top:12px; text-align:center; color:var(--gold); font-family:'Cinzel',serif; font-size:.85rem; letter-spacing:.1em; text-decoration:none; opacity:.85; }
+  .video-fallback:hover { opacity:1; }
   @media(max-width:680px){ .tomas-quotes blockquote { font-size:.92rem; padding:16px 20px; } }
 
   /* CAROUSEL ROWS */
@@ -209,6 +211,7 @@
 
     <div class="tomas-video reveal d2">
       <iframe src="https://www.youtube.com/embed/YpqPpbsPVPU" title="Tomas 6 Month Transformation — Soul Ark" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <a href="https://youtu.be/YpqPpbsPVPU" target="_blank" rel="noopener" class="video-fallback">▶ Tap to watch on YouTube</a>
     </div>
 
     <div class="tomas-quotes reveal d3">
