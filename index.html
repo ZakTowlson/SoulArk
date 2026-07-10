@@ -50,7 +50,8 @@
   .inc-text strong { color:var(--white); font-weight:700; display:block; font-size:.78rem; font-family:'Cinzel',serif; letter-spacing:.06em; text-transform:uppercase; margin-bottom:3px; }
 
   /* CTA */
-  .hero-video { width:100%; max-width:700px; margin:32px auto 8px; position:relative; padding-bottom:56.25%; height:0; border-radius:12px; overflow:hidden; border:1px solid rgba(183,151,67,.2); }
+  .hero-video-wrap { width:100%; max-width:760px; margin:32px auto 8px; }
+  .hero-video { position:relative; padding-bottom:56.25%; height:0; border-radius:12px; overflow:hidden; border:1px solid rgba(183,151,67,.2); }
   .hero-video iframe { position:absolute; top:0; left:0; width:100%; height:100%; }
   .hero-cta-wrap { display:flex; flex-direction:column; align-items:center; gap:12px; margin-top:8px; }
   .btn-main { display:inline-block; background:var(--gold); color:var(--dark); font-family:'Cinzel',serif; font-size:.58rem; letter-spacing:.35em; text-transform:uppercase; padding:20px 48px; text-decoration:none; font-weight:700; transition:all .25s; border:none; cursor:pointer; }
@@ -183,8 +184,10 @@
 
   <span class="hero-eyebrow reveal d2">Private Christian Brotherhood<span class="eyebrow-sub">Certified Life Coaching · Finance Mentoring · Priceless Connections · Opportunities · Exclusive Retreats</span></span>
 
-  <div class="hero-video reveal d3">
-    <iframe src="https://www.youtube.com/embed/eYxGnKXTTfQ" title="Inside Soul Ark" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <div class="hero-video-wrap reveal d3">
+    <div class="hero-video">
+      <iframe src="https://www.youtube.com/embed/eYxGnKXTTfQ" title="Inside Soul Ark" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
     <a href="https://youtu.be/eYxGnKXTTfQ" target="_blank" rel="noopener" class="video-fallback">▶ Tap to watch on YouTube</a>
   </div>
 
