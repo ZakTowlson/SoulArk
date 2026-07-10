@@ -185,8 +185,8 @@
   <span class="hero-eyebrow reveal d2">Private Christian Brotherhood<span class="eyebrow-sub">Certified Life Coaching · Finance Mentoring · Priceless Connections · Opportunities · Exclusive Retreats</span></span>
 
   <div class="hero-video-wrap reveal d3">
-    <div class="hero-video">
-      <iframe src="https://www.youtube.com/embed/eYxGnKXTTfQ?si=upBRA1RBXzi8TOgL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div class="hero-video" id="heroVideoBox">
+      <iframe id="heroIframe" src="https://www.youtube.com/embed/eYxGnKXTTfQ?si=upBRA1RBXzi8TOgL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
   </div>
 
@@ -371,6 +371,14 @@
 </footer>
 
 <script>
+  // Instagram in-app browser blocks YouTube embeds — swap to clickable thumbnail
+  if (/Instagram/.test(navigator.userAgent)) {
+    const box = document.getElementById('heroVideoBox');
+    if (box) {
+      box.innerHTML = `<a href="https://youtu.be/eYxGnKXTTfQ" target="_blank" rel="noopener" style="display:block;position:absolute;inset:0;"><img src="https://img.youtube.com/vi/eYxGnKXTTfQ/maxresdefault.jpg" style="width:100%;height:100%;object-fit:cover;" alt="Watch intro video"/><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;"><div style="width:72px;height:72px;background:rgba(0,0,0,.7);border-radius:50%;display:flex;align-items:center;justify-content:center;"><div style="width:0;height:0;border-top:18px solid transparent;border-bottom:18px solid transparent;border-left:30px solid #fff;margin-left:6px;"></div></div></div></a>`;
+    }
+  }
+
   // SCROLL REVEAL
   const els = document.querySelectorAll('.reveal');
   const obs = new IntersectionObserver(entries => {
