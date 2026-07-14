@@ -50,7 +50,11 @@
   .inc-text strong { color:var(--white); font-weight:700; display:block; font-size:.78rem; font-family:'Cinzel',serif; letter-spacing:.06em; text-transform:uppercase; margin-bottom:3px; }
 
   /* CTA */
-  .hero-video-wrap { width:100%; max-width:760px; margin:32px auto 32px; }
+  .hero-bold-line { font-family:'Cinzel',serif; font-size:clamp(.7rem,2vw,1rem); letter-spacing:.2em; text-transform:uppercase; color:var(--white); font-weight:700; margin:0 auto 28px; max-width:700px; line-height:1.8; }
+  .hero-bold-line span { color:var(--gold); }
+  .hero-99-wrap { width:100%; max-width:760px; margin:0 auto 24px; border-radius:12px; overflow:hidden; border:1px solid rgba(183,151,67,.2); }
+  .hero-99-img { width:100%; display:block; }
+  .hero-video-wrap { width:100%; max-width:760px; margin:0 auto 32px; }
   .hero-video { position:relative; padding-bottom:56.25%; height:0; border-radius:12px; overflow:hidden; border:1px solid rgba(183,151,67,.2); }
   .hero-video iframe { position:absolute; top:0; left:0; width:100%; height:100%; }
   .hero-cta-wrap { display:flex; flex-direction:column; align-items:center; gap:12px; margin-top:8px; }
@@ -182,7 +186,13 @@
 
   <h1 class="reveal d1">Soul <span>Ark</span></h1>
 
-  <span class="hero-eyebrow reveal d2">Private Christian Brotherhood<span class="eyebrow-sub">Certified Life Coaching · Finance Mentoring · Priceless Connections · Opportunities · Exclusive Retreats</span></span>
+  <span class="hero-eyebrow reveal d2">Private Christian Brotherhood<span class="eyebrow-sub">ICF &amp; EMCC Finance Coaching · Certified Finance Mentoring · 250+ Lives Changed</span></span>
+
+  <p class="hero-bold-line reveal d2">Information is <span>CHEAP</span>. Soul Ark is <span>APPLICATION.</span></p>
+
+  <div class="hero-99-wrap reveal d3">
+    <img src="assets/99-vs-1.png" alt="99% choose information, 1% choose application" class="hero-99-img"/>
+  </div>
 
   <div class="hero-video-wrap reveal d3">
     <div class="hero-video" id="heroVideoBox">
