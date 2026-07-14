@@ -35,7 +35,9 @@
   #hero { display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding:100px 24px 48px; text-align:center; position:relative; overflow:hidden; }
   .hero-bg { position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 50% 40%, rgba(183,151,67,.07) 0%, transparent 70%); pointer-events:none; }
   .hero-eyebrow { font-family:'Cinzel',serif; font-size:.52rem; letter-spacing:.45em; text-transform:uppercase; color:var(--gold); margin-bottom:28px; display:block; line-height:2; }
-  .hero-eyebrow .eyebrow-sub { color:var(--white); display:block; font-size:.46rem; letter-spacing:.3em; opacity:.75; margin-top:4px; }
+  .hero-eyebrow .eyebrow-sub { display:none; }
+  .hero-badges { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin:0 auto 28px; max-width:700px; }
+  .hero-badge { font-family:'Cinzel',serif; font-size:.48rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); border:1px solid rgba(183,151,67,.5); background:rgba(183,151,67,.07); padding:10px 18px; border-radius:40px; white-space:nowrap; }
   .hero-logo { width:80px; margin:0 auto 28px; display:block; opacity:.9; }
   h1 { font-family:'Cinzel Decorative',serif; font-weight:900; font-size:clamp(2.4rem,7vw,5.2rem); color:var(--white); line-height:1.08; margin-bottom:20px; }
   h1 span { color:var(--gold); }
@@ -186,7 +188,13 @@
 
   <h1 class="reveal d1">Soul <span>Ark</span></h1>
 
-  <span class="hero-eyebrow reveal d2">Private Christian Brotherhood<span class="eyebrow-sub">ICF &amp; EMCC Finance Coaching · Certified Finance Mentoring · 250+ Lives Changed</span></span>
+  <span class="hero-eyebrow reveal d2">Private Christian Brotherhood</span>
+
+  <div class="hero-badges reveal d2">
+    <span class="hero-badge">ICF &amp; EMCC Qualified Life Coaching</span>
+    <span class="hero-badge">Certified Finance Mentoring</span>
+    <span class="hero-badge">250+ Lives Changed</span>
+  </div>
 
   <p class="hero-bold-line reveal d2">Information is <span>CHEAP</span>. Soul Ark is <span>APPLICATION.</span></p>
 
