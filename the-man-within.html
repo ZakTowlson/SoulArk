@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Man Within — Season 1 | Soul Ark</title>
+<meta name="description" content="A free live webinar on men's mental health and leadership. Wednesday 9 September 2026. Live on Zoom. Very limited spots — reserve your free seat.">
+
+<!-- ================================================================
+     EDIT THIS: paste the real Zoom registration URL below if it
+     ever changes. It is used by every button on the page.
+     ================================================================ -->
+<meta name="zoom-registration-url" content="https://us06web.zoom.us/meeting/register/POubX1lTTEmGJxRi3ZPrzg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#0a0a0a;
+    --ink-soft:#3a3a3a;
+    --ink-faint:#767676;
+    --paper:#ffffff;
+    --navy:#0e1b2e;
+    --navy-soft:#1c3050;
+    --gold:#a8863f;
+    --line:#e4e2de;
+    --max:720px;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    display:flex;
+    flex-direction:column;
+    min-height:100dvh;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--navy);outline-offset:3px;}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;width:100%;}
+
+  main{flex:1;display:flex;flex-direction:column;justify-content:center;padding:28px 0 40px;}
+
+  .banner{width:100%;border-radius:4px;overflow:hidden;margin-bottom:32px;}
+  .banner img{width:100%;height:auto;}
+
+  .urgency{
+    text-align:center;
+    font-size:.78rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-weight:700;
+    color:#b23b3b;
+    margin-bottom:10px;
+  }
+
+  h1{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:600;
+    font-size:clamp(1.7rem,6vw,2.3rem);
+    line-height:1.2;
+    text-align:center;
+    color:var(--ink);
+    margin:0 0 14px;
+    letter-spacing:-0.01em;
+  }
+
+  .lede{
+    text-align:center;
+    font-size:1.02rem;
+    color:var(--ink-soft);
+    line-height:1.55;
+    max-width:520px;
+    margin:0 auto 28px;
+  }
+
+  .details{
+    text-align:center;
+    margin:0 0 28px;
+  }
+  .details-row{
+    font-size:.92rem;
+    font-weight:600;
+    color:var(--ink);
+    line-height:1.9;
+  }
+
+  .gift{
+    text-align:center;
+    font-size:.92rem;
+    color:var(--ink-soft);
+    background:#f6f5f3;
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:14px 18px;
+    margin:0 0 30px;
+  }
+  .gift strong{color:var(--ink);font-weight:700;}
+
+  /* ---------- PROOF ---------- */
+  .proof{
+    padding:8px 0 44px;
+  }
+  .proof-eyebrow{
+    text-align:center;
+    font-size:.72rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    font-weight:700;
+    color:var(--ink-faint);
+    margin:0 0 18px;
+  }
+  .proof-slider{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    max-width:560px;
+    margin:0 auto;
+    padding:0 8px;
+  }
+  .proof-nav{
+    flex:0 0 auto;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    background:#fff;
+    color:var(--ink);
+    font-size:1.3rem;
+    line-height:1;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:background .15s ease;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .proof-nav:hover{background:#f6f5f3;}
+  .proof-nav:active{transform:translateY(1px);}
+
+  .proof-card{
+    flex:1 1 auto;
+    min-width:0;
+    margin:0;
+    background:#f6f5f3;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:26px 24px;
+    text-align:center;
+    cursor:pointer;
+    min-height:132px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .proof-quote{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:1.02rem;
+    line-height:1.5;
+    color:var(--ink);
+    margin:0 0 14px;
+  }
+  .proof-quote::before{content:"\201C";}
+  .proof-quote::after{content:"\201D";}
+  .proof-cite{
+    font-style:normal;
+    font-size:.78rem;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    font-weight:600;
+  }
+
+  .proof-count{
+    text-align:center;
+    font-size:.78rem;
+    color:var(--ink-faint);
+    margin:14px 0 4px;
+  }
+  .proof-more{
+    text-align:center;
+    margin:2px 0 0;
+    font-size:.82rem;
+    font-weight:700;
+    letter-spacing:.02em;
+    color:var(--gold);
+  }
+
+  @media (max-width:480px){
+    .proof-nav{width:34px;height:34px;font-size:1.1rem;}
+    .proof-card{padding:22px 16px;}
+  }
+
+  .cta-wrap{text-align:center;}
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    max-width:420px;
+    background:var(--navy);
+    color:#fff;
+    font-family:'Inter',sans-serif;
+    font-weight:700;
+    font-size:1rem;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:20px 28px;
+    border-radius:3px;
+    border:1px solid var(--navy);
+    transition:background .2s ease, transform .15s ease;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .btn:hover{background:var(--navy-soft);}
+  .btn:active{transform:translateY(1px);}
+
+  .reassure{
+    font-size:.8rem;
+    color:var(--ink-faint);
+    margin-top:14px;
+  }
+
+  footer{
+    padding:24px 0;
+    text-align:center;
+    border-top:1px solid var(--line);
+  }
+  .footer-copy{font-size:.74rem;color:var(--ink-faint);}
+</style>
+</head>
+<body>
+
+<main>
+  <div class="wrap">
+    <div class="banner">
+      <img src="assets/webinar-banner-hd.jpg" alt="The Man Within — Season 1: Men's Mental Health &amp; Leadership Webinar. Wednesday 9 September. Limited seats." fetchpriority="high">
+    </div>
+
+    <p class="urgency">Very limited spots for Season 1</p>
+    <h1>Build the man. The life will follow.</h1>
+    <p class="lede">The Man Within — Season 1: Men's Mental Health &amp; Leadership. Free to attend.</p>
+
+    <div class="details">
+      <div class="details-row">📅 Wednesday, 9 September 2026</div>
+      <div class="details-row">🕗 8:00 PM Dubai GST</div>
+      <div class="details-row">🇬🇧 5:00 PM UK BST</div>
+      <div class="details-row">🇺🇸 12:00 PM New York EDT</div>
+      <div class="details-row">🇺🇸 9:00 AM Los Angeles PDT</div>
+      <div class="details-row">📍 Live on Zoom</div>
+    </div>
+
+    <p class="gift"><strong>Everyone who joins live gets a free gift at the end of the session.</strong></p>
+
+    <div class="cta-wrap">
+      <a class="btn js-zoom-link" href="https://us06web.zoom.us/meeting/register/POubX1lTTEmGJxRi3ZPrzg">Reserve My Free Seat</a>
+      <p class="reassure">Free to attend · Live on Zoom</p>
+    </div>
+  </div>
+</main>
+
+<section class="proof">
+  <p class="proof-eyebrow">What members say</p>
+
+  <div class="proof-slider">
+    <button type="button" class="proof-nav proof-prev" aria-label="Previous testimonial">&#8249;</button>
+
+    <blockquote class="proof-card" id="proofCard" tabindex="0" aria-live="polite">
+      <p class="proof-quote"></p>
+      <cite class="proof-cite"></cite>
+    </blockquote>
+
+    <button type="button" class="proof-nav proof-next" aria-label="Next testimonial">&#8250;</button>
+  </div>
+
+  <p class="proof-count"><span id="proofIndex">1</span> / <span id="proofTotal">11</span></p>
+  <p class="proof-more">+ 250 more</p>
+</section>
+
+<footer>
+  <p class="footer-copy">&copy; 2026 Soul Ark Global. All rights reserved.</p>
+</footer>
+
+<script>
+  (function(){
+    var url = document.querySelector('meta[name="zoom-registration-url"]').content;
+    document.querySelectorAll('.js-zoom-link').forEach(function(el){
+      el.setAttribute('href', url);
+    });
+  })();
+
+  (function(){
+    var testimonials = [
+      { quote: "We had a 90-minute coaching call and for me it was something I feel was really life-changing. From the bottom of my heart, the ROI was insane.", name: "Miro Lipsanen", role: "Finland" },
+      { quote: "Zak has completely changed the way I view myself and my life, and I couldn't be more grateful. If you're considering joining, make the investment — you won't regret it.", name: "Justin Bingham", role: "English Teacher & Poet" },
+      { quote: "Soul Ark had a genuine impact on my personal life and my business. Zak's programme is one of the most transformative things I've invested in. The growth speaks for itself.", name: "Jakub Kucera", role: "Founder, MigmaLabs" },
+      { quote: "I've never been on a coaching call in my life and words can't describe the clarity I feel. If you want to save yourself months of hardship — get in and book that call.", name: "Sam Ferenc", role: "Fitness Coach" },
+      { quote: "I feel more grounded than I ever have. My business has focus and direction. And I wake up with an energy I didn't know was possible.", name: "Lazar Dimitrijevic", role: "Content Creator" },
+      { quote: "I am grateful to be able to call you my friend.", name: "Nemanja", role: "Serbia" },
+      { quote: "The App is a blessing to all Christians old and new in their faith — just having such a great support network and place to connect and learn at your fingertips is really what technology should be used for.", name: "Sam", role: "" },
+      { quote: "I love the idea of all these different souls underneath an ark of following Jesus Christ, living for God and purpose. I'm typically a very private person, but this is really helping make more connections.", name: "Sam", role: "" },
+      { quote: "I love the Soul Ark Community. It helps me make the right choices on a daily basis with a personal long-term vision. It's informative, and at the same time, it touches my soul.", name: "Achim Krause", role: "Christ is KING" },
+      { quote: "To find the motivation every day to begin with is difficult to do by yourself, but not when you've got Zak mentoring you. He isn't just another face with an offer — he's relatable, and his own personal story is truly inspiring.", name: "Calvin", role: "" },
+      { quote: "This man is almost too good to be true. His uncommon wisdom, advice and energy are second to none. What Zak imparts to me daily is worth far more than any fees I send his way. He's an accountability mentor — something every man needs in his life.", name: "EJ", role: "" }
+    ];
+
+    var index = 0;
+    var quoteEl = document.querySelector('#proofCard .proof-quote');
+    var citeEl = document.querySelector('#proofCard .proof-cite');
+    var indexEl = document.getElementById('proofIndex');
+    var totalEl = document.getElementById('proofTotal');
+    var card = document.getElementById('proofCard');
+
+    totalEl.textContent = testimonials.length;
+
+    function render(){
+      var t = testimonials[index];
+      quoteEl.textContent = t.quote;
+      citeEl.textContent = t.role ? (t.name + ', ' + t.role) : t.name;
+      indexEl.textContent = index + 1;
+    }
+    function next(){ index = (index + 1) % testimonials.length; render(); }
+    function prev(){ index = (index - 1 + testimonials.length) % testimonials.length; render(); }
+
+    document.querySelector('.proof-next').addEventListener('click', next);
+    document.querySelector('.proof-prev').addEventListener('click', prev);
+    card.addEventListener('click', next);
+    card.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); next(); }
+      if(e.key === 'ArrowRight'){ next(); }
+      if(e.key === 'ArrowLeft'){ prev(); }
+    });
+
+    render();
+  })();
+</script>
+
+</body>
+</html>
