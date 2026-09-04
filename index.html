@@ -111,10 +111,12 @@
     aspect-ratio:16/9;
     box-shadow:0 20px 48px rgba(28,37,70,.18);
   }
-  .vid-wrap iframe{
-    width:100%;height:100%;
-    display:block;border:none;
-  }
+  .vid-wrap iframe{width:100%;height:100%;display:block;border:none;}
+  .yt-facade{position:relative;width:100%;height:100%;cursor:pointer;background:#000;}
+  .yt-facade img{width:100%;height:100%;object-fit:cover;display:block;}
+  .yt-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:68px;height:48px;background:#ff0000;border-radius:12px;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+  .yt-facade:hover .yt-play{background:#cc0000;}
+  .yt-play svg{width:24px;height:24px;fill:#fff;}
 
 /* TESTIMONIAL CAROUSEL (navy cards) */
   .t-carousel{background:#fff;padding:clamp(32px,5vh,56px) 0;overflow:hidden;}
@@ -387,7 +389,10 @@ src="https://www.facebook.com/tr?id=1597948488639558&ev=PageView&noscript=1"
 <!-- VIDEO 1 -->
 <div class="vid-section">
   <div class="vid-wrap">
-    <iframe src="https://www.youtube.com/embed/q6MFu2JGVkw?si=jDRyC1ZYe3hgPfti" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div class="yt-facade" data-id="q6MFu2JGVkw">
+      <img src="https://i.ytimg.com/vi/q6MFu2JGVkw/hqdefault.jpg" alt="Soul Ark — What Is Soul Ark?" loading="lazy"/>
+      <div class="yt-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+    </div>
   </div>
 </div>
 
@@ -402,31 +407,31 @@ src="https://www.facebook.com/tr?id=1597948488639558&ev=PageView&noscript=1"
 <section class="img-carousel">
   <div class="img-rows">
     <div class="img-row left">
-      <div class="img-card"><img src="assets/finance/finance-01.jpg" alt=""/></div>
-      <div class="img-card"><img src="assets/finance/finance-03.jpg" alt=""/></div>
-      <div class="img-card"><img src="assets/finance/finance-05.jpg" alt=""/></div>
-      <div class="img-card"><img src="assets/finance/finance-07.jpg" alt=""/></div>
-      <div class="img-card"><img src="assets/finance/finance-09.jpg" alt=""/></div>
-      <div class="img-card"><img src="assets/finance/finance-10.jpg" alt=""/></div>
-      <div class="img-card"><img src="assets/finance/finance-11.jpg" alt=""/></div>
-      <div class="img-card"><img src="assets/finance/img_8234.jpg" alt=""/></div>
-      <div class="img-card"><img src="assets/finance/img_8235.jpg" alt=""/></div>
-      <div class="img-card"><img src="assets/finance/img_8236.jpg" alt=""/></div>
-      <div class="img-card"><img src="assets/finance/img_8237.jpg" alt=""/></div>
-      <div class="img-card"><img src="assets/finance/img_8238.jpg" alt=""/></div>
+      <div class="img-card"><img loading="lazy" src="assets/finance/finance-01.jpg" alt=""/></div>
+      <div class="img-card"><img loading="lazy" src="assets/finance/finance-03.jpg" alt=""/></div>
+      <div class="img-card"><img loading="lazy" src="assets/finance/finance-05.jpg" alt=""/></div>
+      <div class="img-card"><img loading="lazy" src="assets/finance/finance-07.jpg" alt=""/></div>
+      <div class="img-card"><img loading="lazy" src="assets/finance/finance-09.jpg" alt=""/></div>
+      <div class="img-card"><img loading="lazy" src="assets/finance/finance-10.jpg" alt=""/></div>
+      <div class="img-card"><img loading="lazy" src="assets/finance/finance-11.jpg" alt=""/></div>
+      <div class="img-card"><img loading="lazy" src="assets/finance/img_8234.jpg" alt=""/></div>
+      <div class="img-card"><img loading="lazy" src="assets/finance/img_8235.jpg" alt=""/></div>
+      <div class="img-card"><img loading="lazy" src="assets/finance/img_8236.jpg" alt=""/></div>
+      <div class="img-card"><img loading="lazy" src="assets/finance/img_8237.jpg" alt=""/></div>
+      <div class="img-card"><img loading="lazy" src="assets/finance/img_8238.jpg" alt=""/></div>
       <!-- duplicate -->
-      <div class="img-card"><img src="assets/finance/finance-01.jpg" alt=""/></div>
-      <div class="img-card"><img src="assets/finance/finance-03.jpg" alt=""/></div>
-      <div class="img-card"><img src="assets/finance/finance-05.jpg" alt=""/></div>
-      <div class="img-card"><img src="assets/finance/finance-07.jpg" alt=""/></div>
-      <div class="img-card"><img src="assets/finance/finance-09.jpg" alt=""/></div>
-      <div class="img-card"><img src="assets/finance/finance-10.jpg" alt=""/></div>
-      <div class="img-card"><img src="assets/finance/finance-11.jpg" alt=""/></div>
-      <div class="img-card"><img src="assets/finance/img_8234.jpg" alt=""/></div>
-      <div class="img-card"><img src="assets/finance/img_8235.jpg" alt=""/></div>
-      <div class="img-card"><img src="assets/finance/img_8236.jpg" alt=""/></div>
-      <div class="img-card"><img src="assets/finance/img_8237.jpg" alt=""/></div>
-      <div class="img-card"><img src="assets/finance/img_8238.jpg" alt=""/></div>
+      <div class="img-card"><img loading="lazy" src="assets/finance/finance-01.jpg" alt=""/></div>
+      <div class="img-card"><img loading="lazy" src="assets/finance/finance-03.jpg" alt=""/></div>
+      <div class="img-card"><img loading="lazy" src="assets/finance/finance-05.jpg" alt=""/></div>
+      <div class="img-card"><img loading="lazy" src="assets/finance/finance-07.jpg" alt=""/></div>
+      <div class="img-card"><img loading="lazy" src="assets/finance/finance-09.jpg" alt=""/></div>
+      <div class="img-card"><img loading="lazy" src="assets/finance/finance-10.jpg" alt=""/></div>
+      <div class="img-card"><img loading="lazy" src="assets/finance/finance-11.jpg" alt=""/></div>
+      <div class="img-card"><img loading="lazy" src="assets/finance/img_8234.jpg" alt=""/></div>
+      <div class="img-card"><img loading="lazy" src="assets/finance/img_8235.jpg" alt=""/></div>
+      <div class="img-card"><img loading="lazy" src="assets/finance/img_8236.jpg" alt=""/></div>
+      <div class="img-card"><img loading="lazy" src="assets/finance/img_8237.jpg" alt=""/></div>
+      <div class="img-card"><img loading="lazy" src="assets/finance/img_8238.jpg" alt=""/></div>
     </div>
   </div>
 </section>
@@ -434,7 +439,10 @@ src="https://www.facebook.com/tr?id=1597948488639558&ev=PageView&noscript=1"
 <!-- VIDEO 2 — Tomas -->
 <div class="vid-section">
   <div class="vid-wrap">
-    <iframe src="https://www.youtube.com/embed/4QB-7FR2TeU" title="Tomas 6 Month Transformation — Soul Ark" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="yt-facade" data-id="4QB-7FR2TeU">
+      <img src="https://i.ytimg.com/vi/4QB-7FR2TeU/hqdefault.jpg" alt="Soul Ark Member Testimonial" loading="lazy"/>
+      <div class="yt-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+    </div>
   </div>
 </div>
 
@@ -646,6 +654,19 @@ src="https://www.facebook.com/tr?id=1597948488639558&ev=PageView&noscript=1"
   var track = document.getElementById('tTrack');
   var html = testimonials.map(card).join('');
   track.innerHTML = html + html;
+</script>
+<script>
+  document.querySelectorAll('.yt-facade').forEach(function(el){
+    el.addEventListener('click',function(){
+      var id=el.dataset.id;
+      var iframe=document.createElement('iframe');
+      iframe.src='https://www.youtube.com/embed/'+id+'?autoplay=1';
+      iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen=true;
+      iframe.style.cssText='width:100%;height:100%;border:none;display:block;';
+      el.replaceWith(iframe);
+    });
+  });
 </script>
 </body>
 </html>
